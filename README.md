@@ -13,16 +13,16 @@ In this research, I would like to develop a geospatial ontology for tracking rea
 
 With the following information provided in the Jail Dataset case study, we may be able to link it with the real-time criminal activity ontology: 
 
-*(1) Location information*   
+**(1) Location information   
 
 Information in columns such as _zip code, city, state_ is highly relevant to creating geospatial ontologies. If we can utilize these information and link it with actual coordinates (longitude and latitude), we may be able to deduce more precisely the areas that were affected by some criminal incidents. 
 
-*(2)Time information*
+**(2)Time information
 
 Timestamps as to when the prisoners were brought into jail is also very crucial to building our ontology. We may be able to make good use of information such as the _booking date, booking time, days in Jail, hours, minutes, second,_ and _release dates_ columns. Though they may not contribute to the ‘real-time’ tracking, these information can still be very valuable when we want to further track individuals who have committed serious crimes- to know that they have/ have not yet been released.
 
 
-*(3)Type of crimes* 
+**(3)Type of crimes
 
 Type of crimes (e.g. the _CrimeCode_ column) is also pertinent information to our ontology. Our aim is to find not when and where, but also what kind of things happened in that space; so distinct Crime Code can serve as the classes of our ontology. 
 
