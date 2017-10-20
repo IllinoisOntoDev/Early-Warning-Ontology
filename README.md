@@ -5,6 +5,7 @@ With the advent of new geospatial technologies, tracking real-time criminal acti
 
 In this research, I would like to develop a geospatial ontology for tracking real-time criminal activities. With the help of ontologies, we may be able to:
 (1)	Use the reasoning methods in ontologies and infer the ‘affected’ zones of the criminal activities 
+
 (2)	Use the time-related classes and properties to track the activities without time-delay
 
 ## Relationships to the case study
@@ -15,6 +16,7 @@ In this research, I would like to develop a geospatial ontology for tracking rea
 ## Existing published vocabularies that are candidates for extension or adaptation
 
 https://www.w3.org/TR/sdw-bp/#linking
+
 https://www.w3.org/2005/Incubator/geo/XGR-geo-ont-20071023/
 
 
