@@ -1,7 +1,7 @@
 # Domain Description 
 
 ## Scope of the proposed area
-With the advent of new geospatial technologies, tracking real-time criminal activities has become a prevalent practice. Some existing platforms such as [Criminal Reports](https://www.crimereports.com/) provides such statistics and data within a period of time; while governmental warning systems (e.g. Illini alert) receives criminal activity reports and sends warning messages via text messages or social media. However, these warning systems usually still deferred a little when sending out the warnings; and the messages are sent to the mass public when in real life they could have just send relevant message to the selected areas that were affected.
+With the advent of new geospatial technologies, tracking real-time criminal activities has become a prevalent practice. Some existing platforms such as [Criminal Reports](https://www.crimereports.com/) provides such statistics and data within a period of time; while governmental warning systems (e.g. Illini alert) receives criminal activity reports and sends warning messages via text messages or social media. However, these warning systems usually still deferred a little when sending out the warnings; and the messages are sent to the mass public when only selected areas were affected.
 
 In this research, I would like to develop a geospatial ontology for tracking real-time criminal activities. With the help of ontologies, we may be able to:
 
