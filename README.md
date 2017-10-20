@@ -3,14 +3,17 @@
 ## Scope of the proposed area
 With the advent of new geospatial technologies, tracking real-time criminal activities has become a prevalent practice. Some existing platforms such as [Criminal Reports](https://www.crimereports.com/) provides such statistics and data within a period of time; while governmental warning systems (e.g. Illini alert) receives criminal activity reports and sends warning messages via text messages or social media. However, these warning systems usually still deferred a little when sending out the warnings; and the messages are sent to the mass public when only selected areas were affected.
 
-Previous research has dwelled on building early warning systems for tsunamis (Ramar & Mirnalinee, 2012). Others focused on ‘crisis management’ or ‘disaster prevention’, but still mainly in the domains of natural disasters (Liu et al., 2013; Klien, Lutz, & Kuhn, 2006; Poslad et al., 2015). Building early warning ontologies for human activities such as crime events has not yet been seen. In this research, I would like to develop a geospatial ontology for crime activities early warning. With the help of ontologies, we may be able to:
+Previous research has dwelled on building early warning systems for **tsunamis** (Ramar & Mirnalinee, 2012). Others focused on _crisis management_ or _disaster prevention_, but still mainly in the domains of natural disasters, with an emphasis on providing sensor ontologies that can identify signals, wave lengths, timestamp, and other signal processing relevant features (Liu et al., 2013; Klien, Lutz, & Kuhn, 2006; Poslad et al., 2015). 
+
+Building early warning ontologies for human activities such as crime events has not yet been seen. In this research, I would like to develop a **geospatial ontology for crime activities early warning**. With the help of ontologies, we may be able to:
 
 (1)	Use the reasoning and inference fuction in ontologies and infer the ‘affected’ zones of the criminal activities 
 
 (2)	Use the time-related classes and properties to track the activities without time-delay
 
-Crime activities are in a way ‘crisis’ management, which echoes what Liu et al. (2013) said that the infrastructure may be complex because we have to take into account the timeframe of events. That is, we need to have corresponding information for before, during, or even after the crime crisis. Ontology can be useful in that sense because it provide rich semantic descriptions, therefore reduces the semantic heterogeneity problems occurs in systems that do not have well-constructed data structure (Klien, Lutz, & Kuhn, 2006; Liu et al, 2013; Ramar & Mirnalinee, 2012). 
+Crime activities are in a way _crisis management_, which echoes what Liu et al. (2013) said that the infrastructure may be complex because we have to take into account the timeframe of events. That is, we need to have corresponding information for before, during, or even after the crime crisis. 
 
+Ontology can be useful in that sense because it provides rich semantic descriptions, therefore reduces the semantic heterogeneity problems occurs in systems that do not have well-constructed data structure (Klien, Lutz, & Kuhn, 2006; Liu et al, 2013; Ramar & Mirnalinee, 2012). Poslad et al. (2015) further elaborated that the semantics in ontologies can help us define more precisely the terms and relationships between complex concepts in the disaster warning workflow, while on the other hand leading to a stronger rule-based inferencing and can enhance “service interoperability, orchestration and extension”. 
 
 ## Relationships to the case study
 
