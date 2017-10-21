@@ -54,3 +54,24 @@ Other ones such as the [Getty Thesaurus of Geographic Names](http://www.getty.ed
 
 
 ## Ideas for classes and properties
+
+Poslad et al. (2015) suggested the workflow of an Early Warning Systems (EWS) to have four main functions, and they may be a useful classifications for classes: 
+(1) Predefined danger ; (2) monitoring parameters ; (3) dissemination channels; (4) response. 
+
+Other ideas for designing classes and properties may be drawn directly from the dataset, such as having a class named ‘location’, with ‘address’, ‘zip code’, ‘city’ as subclasses. 
+
+## Reference
+
+Klien, E., Lutz, M., & Kuhn, W. (2006). Ontology-based discovery of geographic information services—An application in disaster management. Computers, environment and urban systems, 30(1), 102-123.
+
+Liu, S., Brewster, C., & Shaw, D. (2013, May). Ontologies for crisis management: A review of state of the art in ontology design and usability. In ISCRAM.
+
+Poslad, S., Middleton, S. E., Chaves, F., Tao, R., Necmioglu, O., & Bügel, U. (2015). A Semantic IoT Early Warning System for Natural Environment Crisis Management. IEEE Transactions on Emerging Topics in Computing, 3(2), 246–257. https://doi.org/10.1109/TETC.2015.2432742
+
+Ramar, K., & Mirnalinee, T. T. (2012). An ontological representation for Tsunami early warning system. In IEEE-International Conference On Advances In Engineering, Science And Management (ICAESM -2012) (pp. 93–98).
+
+W3C incubator group. (2007). W3C Geospatial ontologies. Retrieved from : https://www.w3.org/2005/Incubator/geo/XGR-geo-ont-20071023/
+
+W3C working group. (2017). Spatial Data on the Web Best Practices. Retrieved From: https://www.w3.org/TR/sdw-bp/
+
+
