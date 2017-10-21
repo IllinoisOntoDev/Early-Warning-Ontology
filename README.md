@@ -58,7 +58,7 @@ Other ones such as the [Getty Thesaurus of Geographic Names](http://www.getty.ed
 Poslad et al. (2015) suggested the workflow of an Early Warning Systems (EWS) to have four main functions, and they may be a useful classifications for classes: 
 (1) Predefined danger ; (2) monitoring parameters ; (3) dissemination channels; (4) response. 
 
-Other ideas for designing classes and properties may be drawn directly from the dataset, such as having a class named ‘location’, with ‘address’, ‘zip code’, ‘city’ as subclasses. 
+Other ideas for designing classes and properties may be drawn directly from the dataset, such as having a class named _location_, with _address, zip code, city_ as subclasses. 
 
 ## Reference
 
