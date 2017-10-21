@@ -35,9 +35,22 @@ Type of crimes (e.g. the _CrimeCode_ column) is also pertinent information to ou
 
 ## Existing published vocabularies that are candidates for extension or adaptation
 
-https://www.w3.org/TR/sdw-bp/#linking
+**(1)	GeoNames**
 
-https://www.w3.org/2005/Incubator/geo/XGR-geo-ont-20071023/
+In Liu et al. (2013)’s review of the state of the art crisis management ontologies, they concluded that few crisis ontologies are ‘formally represented’, even among the ones that are in the form of ontologies (such as SOKNOS, IsyCri, WB-OS), they are not open to public. However, for the geospatial domain, the authors recommend the reuse of [GeoNames](http://www.geonames.org/) as a best practice, because GeoNames offers extensive resource for toponyms. 
+
+**(2) GeoSPARQL**
+
+The Open Geospatial Consortium (OGC) provides a series of standards and best practice for publishing geospatial data online, one of which is the use of [GeoSPARQL](http://www.opengeospatial.org/standards/geosparql). GeoSPARQL supports querying geospatial data in RDF, and may be a potential candidate for our crime activities early-warning ontology. 
+
+**(3)Others**
+
+In the W3C Geopsptatial Ontologies report (2006), other existing vocabularies or ontologies we may consider to adapt are: 
+-	WGS84 standard for coordinate reference system
+-	RCC-8 (Region Connection Calculus) for topological relationships between terms
+ 
+Other ones such as the [Getty Thesaurus of Geographic Names](http://www.getty.edu/research/tools/vocabularies/tgn/index.html
+) is also highly relevant. 
 
 
 ## Ideas for classes and properties
