@@ -27,15 +27,15 @@
 # 
 # http://purl.org/lis590OD/Fall17/EarlyWarningOnt#isHarmful
 
-<http://purl.org/lis590OD/Fall17/EarlyWarningOnt#isHarmful> a owl:ObjectProperty ;
-	rdfs:domain <http://schema.org/Person> , foaf:Person ;
-	rdfs:range <http://purl.org/lis590OD/Fall17/EarlyWarningOnt#PotentialHarm> .
+<http://purl.org/lis590OD/Fall17/EarlyWarningOnt#isHarmful> a owl:ObjectProperty , owl:IrreflexiveProperty ;
+	rdfs:domain foaf:Person ;
+	rdfs:range foaf:Person .
 # 
 # http://schema.org/location
 
 <http://schema.org/location> a owl:ObjectProperty ;
 	owl:equivalentProperty <http://www.w3.org/2003/01/geo/wgs84_pos#location> ;
-	rdfs:domain <http://purl.org/lis590OD/Fall17/EarlyWarningOnt#PotentialHarm> , <http://schema.org/Action> , <http://schema.org/Event> ;
+	rdfs:domain <http://purl.org/lis590OD/Fall17/EarlyWarningOnt#PotentialSurroundingHarm> , <http://schema.org/Action> , <http://schema.org/Event> ;
 	rdfs:range <http://schema.org/GeoCoordinates> , <http://schema.org/Place> , <http://schema.org/PostalAddress> , <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> ;
 	rdfs:comment "The location of for example where the event is happening, an organization is located, or where an action takes place." ;
 	rdfs:label "Location" .
@@ -44,7 +44,7 @@
 
 <http://www.w3.org/2003/01/geo/wgs84_pos#location> a owl:ObjectProperty ;
 	rdfs:subPropertyOf owl:topObjectProperty ;
-	rdfs:domain <http://purl.org/lis590OD/Fall17/EarlyWarningOnt#PotentialHarm> , <http://schema.org/Action> , <http://schema.org/Event> ;
+	rdfs:domain <http://purl.org/lis590OD/Fall17/EarlyWarningOnt#PotentialSurroundingHarm> , <http://schema.org/Action> , <http://schema.org/Event> ;
 	rdfs:range <http://schema.org/GeoCoordinates> , <http://schema.org/Place> , <http://schema.org/PostalAddress> , <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> ;
 	rdfs:comment """The relation between something and the point, 
  or other geometrical thing in space, where it is.  For example, the realtionship between
@@ -312,22 +312,16 @@ _:genid1 a owl:Restriction ;
 <http://purl.org/lis590OD/Fall17/EarlyWarningOnt#Misdemeanors> a owl:Class ;
 	rdfs:subClassOf <http://purl.org/lis590OD/Fall17/CrimeChargeOnt#CrimeClassification> .
 # 
-# http://purl.org/lis590OD/Fall17/EarlyWarningOnt#PotentialHarm
+# http://purl.org/lis590OD/Fall17/EarlyWarningOnt#PotentialSurroundingHarm
 
-<http://purl.org/lis590OD/Fall17/EarlyWarningOnt#PotentialHarm> a owl:Class ;
-	rdfs:subClassOf <http://purl.org/lis590OD/Fall17/EarlyWarningOnt#PredefinedDanger> , _:genid2 .
+<http://purl.org/lis590OD/Fall17/EarlyWarningOnt#PotentialSurroundingHarm> a owl:Class ;
+	rdfs:subClassOf event:Event , <http://purl.org/lis590OD/Fall17/EarlyWarningOnt#PredefinedDanger> , <http://schema.org/Action> , <http://schema.org/Event> , _:genid2 .
 
 _:genid2 a owl:Restriction ;
-	owl:onProperty <http://purl.org/lis590OD/Fall17/EarlyWarningOnt#isHarmful> ;
-	owl:someValuesFrom <http://schema.org/Person> .
-
-<http://purl.org/lis590OD/Fall17/EarlyWarningOnt#PotentialHarm> rdfs:subClassOf _:genid3 .
-
-_:genid3 a owl:Restriction ;
 	owl:onProperty <http://www.w3.org/2003/01/geo/wgs84_pos#location> ;
 	owl:someValuesFrom <http://schema.org/Place> .
 
-<http://purl.org/lis590OD/Fall17/EarlyWarningOnt#PotentialHarm> rdfs:comment "Report any potential harm there may be in the surroundings (e.g. Gas leak, explosions, etc. ) or to another person / people." .
+<http://purl.org/lis590OD/Fall17/EarlyWarningOnt#PotentialSurroundingHarm> rdfs:comment "Report any potential harm there may be in the surroundings (e.g. Gas leak, explosions, etc. )" .
 # 
 # http://purl.org/lis590OD/Fall17/EarlyWarningOnt#PredefinedDanger
 
@@ -350,9 +344,9 @@ _:genid3 a owl:Restriction ;
 # http://schema.org/GeoCoordinates
 
 <http://schema.org/GeoCoordinates> a owl:Class ;
-	rdfs:subClassOf <http://schema.org/Place> , _:genid4 .
+	rdfs:subClassOf <http://schema.org/Place> , _:genid3 .
 
-_:genid4 a owl:Restriction ;
+_:genid3 a owl:Restriction ;
 	owl:onProperty <http://www.w3.org/2003/01/geo/wgs84_pos#location> ;
 	owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
 	owl:onClass <http://schema.org/GeoCoordinates> .
@@ -372,22 +366,22 @@ _:genid4 a owl:Restriction ;
 # http://schema.org/PostalAddress
 
 <http://schema.org/PostalAddress> a owl:Class ;
-	rdfs:subClassOf <http://schema.org/Place> , _:genid5 .
+	rdfs:subClassOf <http://schema.org/Place> , _:genid4 .
 
-_:genid5 a owl:Restriction ;
+_:genid4 a owl:Restriction ;
 	owl:onProperty <http://schema.org/addressRegion> ;
 	owl:maxCardinality "1"^^xsd:nonNegativeInteger .
 
-<http://schema.org/PostalAddress> rdfs:subClassOf _:genid6 .
+<http://schema.org/PostalAddress> rdfs:subClassOf _:genid5 .
 
-_:genid6 a owl:Restriction ;
+_:genid5 a owl:Restriction ;
 	owl:onProperty <http://schema.org/postalCode> ;
 	owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
 	owl:onDataRange xsd:nonNegativeInteger .
 
-<http://schema.org/PostalAddress> rdfs:subClassOf _:genid7 .
+<http://schema.org/PostalAddress> rdfs:subClassOf _:genid6 .
 
-_:genid7 a owl:Restriction ;
+_:genid6 a owl:Restriction ;
 	owl:onProperty <http://schema.org/streetAddress> ;
 	owl:maxCardinality "1"^^xsd:nonNegativeInteger .
 
@@ -416,30 +410,30 @@ geonames:GeonamesFeature a owl:Class ;
 # http://www.w3.org/2006/time#GeneralDateTimeDescription
 
 time:GeneralDateTimeDescription a owl:Class ;
-	rdfs:subClassOf _:genid8 .
+	rdfs:subClassOf _:genid7 .
+
+_:genid7 a owl:Restriction ;
+	owl:onProperty time:day ;
+	owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+	owl:onDataRange xsd:nonNegativeInteger .
+
+time:GeneralDateTimeDescription rdfs:subClassOf _:genid8 .
 
 _:genid8 a owl:Restriction ;
-	owl:onProperty time:day ;
+	owl:onProperty time:hour ;
 	owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
 	owl:onDataRange xsd:nonNegativeInteger .
 
 time:GeneralDateTimeDescription rdfs:subClassOf _:genid9 .
 
 _:genid9 a owl:Restriction ;
-	owl:onProperty time:hour ;
+	owl:onProperty time:minute ;
 	owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
 	owl:onDataRange xsd:nonNegativeInteger .
 
 time:GeneralDateTimeDescription rdfs:subClassOf _:genid10 .
 
 _:genid10 a owl:Restriction ;
-	owl:onProperty time:minute ;
-	owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-	owl:onDataRange xsd:nonNegativeInteger .
-
-time:GeneralDateTimeDescription rdfs:subClassOf _:genid11 .
-
-_:genid11 a owl:Restriction ;
 	owl:onProperty time:second ;
 	owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
 	owl:onDataRange xsd:nonNegativeInteger .
@@ -447,37 +441,37 @@ _:genid11 a owl:Restriction ;
 # http://www.w3.org/2006/time#GeneralDurationDescription
 
 time:GeneralDurationDescription a owl:Class ;
-	rdfs:subClassOf time:TemporalDuration , _:genid12 .
+	rdfs:subClassOf time:TemporalDuration , _:genid11 .
+
+_:genid11 a owl:Restriction ;
+	owl:onProperty time:days ;
+	owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+	owl:onDataRange xsd:nonNegativeInteger .
+
+time:GeneralDurationDescription rdfs:subClassOf _:genid12 .
 
 _:genid12 a owl:Restriction ;
-	owl:onProperty time:days ;
+	owl:onProperty time:hours ;
 	owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
 	owl:onDataRange xsd:nonNegativeInteger .
 
 time:GeneralDurationDescription rdfs:subClassOf _:genid13 .
 
 _:genid13 a owl:Restriction ;
-	owl:onProperty time:hours ;
+	owl:onProperty time:minutes ;
 	owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
 	owl:onDataRange xsd:nonNegativeInteger .
 
 time:GeneralDurationDescription rdfs:subClassOf _:genid14 .
 
 _:genid14 a owl:Restriction ;
-	owl:onProperty time:minutes ;
+	owl:onProperty time:months ;
 	owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
 	owl:onDataRange xsd:nonNegativeInteger .
 
 time:GeneralDurationDescription rdfs:subClassOf _:genid15 .
 
 _:genid15 a owl:Restriction ;
-	owl:onProperty time:months ;
-	owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-	owl:onDataRange xsd:nonNegativeInteger .
-
-time:GeneralDurationDescription rdfs:subClassOf _:genid16 .
-
-_:genid16 a owl:Restriction ;
 	owl:onProperty time:years ;
 	owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
 	owl:onDataRange xsd:nonNegativeInteger .
@@ -523,19 +517,44 @@ foaf:OnlineGamingAccount a owl:Class ;
 # http://xmlns.com/foaf/0.1/Person
 
 foaf:Person a owl:Class ;
-	rdfs:subClassOf <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> , foaf:Agent , _:genid17 .
+	rdfs:subClassOf dcterms:Agent , <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> , foaf:Agent , _:genid16 .
+
+_:genid16 a owl:Restriction ;
+	owl:onProperty <http://purl.org/lis590OD/Fall17/EarlyWarningOnt#isHarmful> ;
+	owl:someValuesFrom <http://purl.org/lis590OD/Fall17/EarlyWarningOnt#PotentialSurroundingHarm> .
+
+foaf:Person rdfs:subClassOf _:genid17 .
 
 _:genid17 a owl:Restriction ;
-	owl:onProperty <http://purl.org/lis590OD/Fall17/EarlyWarningOnt#isHarmful> ;
-	owl:someValuesFrom <http://purl.org/lis590OD/Fall17/EarlyWarningOnt#PotentialHarm> .
-
-foaf:Person rdfs:subClassOf _:genid18 .
-
-_:genid18 a owl:Restriction ;
 	owl:onProperty <http://purl.org/lis590OD/Fall17/EarlyWarningOnt#isHarmful> ;
 	owl:someValuesFrom <http://schema.org/Place> .
 
 foaf:Person rdfs:comment "A person." ;
 	rdfs:label "Person" .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Individuals
+# #
+# #################################################################
+# 
+# 
+# http://purl.org/lis590OD/Fall17/EarlyWarningOnt#Jane_Doe
+
+<http://purl.org/lis590OD/Fall17/EarlyWarningOnt#Jane_Doe> a owl:NamedIndividual , <http://schema.org/Person> , foaf:Person .
+# 
+# http://purl.org/lis590OD/Fall17/EarlyWarningOnt#explosion
+
+<http://purl.org/lis590OD/Fall17/EarlyWarningOnt#explosion> a owl:NamedIndividual , <http://purl.org/lis590OD/Fall17/EarlyWarningOnt#PotentialSurroundingHarm> .
+# 
+# http://purl.org/lis590OD/Fall17/EarlyWarningOnt#gasLeak
+
+<http://purl.org/lis590OD/Fall17/EarlyWarningOnt#gasLeak> a owl:NamedIndividual , <http://purl.org/lis590OD/Fall17/EarlyWarningOnt#PotentialSurroundingHarm> .
+# 
+# http://purl.org/lis590OD/Fall17/EarlyWarningOnt#gunFire
+
+<http://purl.org/lis590OD/Fall17/EarlyWarningOnt#gunFire> a owl:NamedIndividual , <http://purl.org/lis590OD/Fall17/EarlyWarningOnt#PotentialSurroundingHarm> .
 # 
 # Generated by the OWL API (version 4.2.5.20160517-0735) https://github.com/owlcs/owlapi
