@@ -25,11 +25,22 @@
 # #################################################################
 # 
 # 
+# http://purl.org/lis590OD/Fall17/EarlyWarningOnt#disseminateBy
+
+<http://purl.org/lis590OD/Fall17/EarlyWarningOnt#disseminateBy> a owl:ObjectProperty ;
+	rdfs:domain <http://purl.org/lis590OD/Fall17/EarlyWarningOnt#Report> ;
+	rdfs:range <http://purl.org/lis590OD/Fall17/EarlyWarningOnt#DisseminationChannels> .
+# 
+# http://purl.org/lis590OD/Fall17/EarlyWarningOnt#has
+
+<http://purl.org/lis590OD/Fall17/EarlyWarningOnt#has> a owl:ObjectProperty , owl:IrreflexiveProperty ;
+	rdfs:domain foaf:Person ;
+	rdfs:range foaf:OnlineAccount .
+# 
 # http://purl.org/lis590OD/Fall17/EarlyWarningOnt#isHarmful
 
 <http://purl.org/lis590OD/Fall17/EarlyWarningOnt#isHarmful> a owl:ObjectProperty , owl:IrreflexiveProperty ;
-	rdfs:domain foaf:Person ;
-	rdfs:range foaf:Person .
+	rdfs:domain <http://purl.org/lis590OD/Fall17/EarlyWarningOnt#Criminal> .
 # 
 # http://schema.org/location
 
@@ -59,15 +70,18 @@
 
 time:after a owl:ObjectProperty ;
 	rdfs:subPropertyOf owl:topObjectProperty ;
-	rdfs:domain time:TemporalEntity ;
-	rdfs:range time:TemporalEntity .
+	owl:inverseOf time:before ;
+	a owl:AsymmetricProperty ;
+	rdfs:domain event:Event , time:TemporalEntity ;
+	rdfs:range event:Event , time:TemporalEntity .
 # 
 # http://www.w3.org/2006/time#before
 
 time:before a owl:ObjectProperty ;
 	rdfs:subPropertyOf owl:topObjectProperty ;
-	rdfs:domain time:TemporalEntity ;
-	rdfs:range time:TemporalEntity .
+	a owl:AsymmetricProperty ;
+	rdfs:domain event:Event , time:TemporalEntity ;
+	rdfs:range event:Event , time:TemporalEntity .
 # 
 # http://www.w3.org/2006/time#hasTime
 
@@ -271,7 +285,9 @@ dcterms:Agent a owl:Class ;
 # 
 # http://purl.org/lis590OD/Fall17/CrimeChargeOnt#Statute_Information
 
-<http://purl.org/lis590OD/Fall17/CrimeChargeOnt#Statute_Information> a owl:Class .
+<http://purl.org/lis590OD/Fall17/CrimeChargeOnt#Statute_Information> a owl:Class ;
+	rdfs:subClassOf <http://purl.org/lis590OD/Fall17/EarlyWarningOnt#Criminal> ;
+	rdfs:isDefinedBy "http://purl.org/lis590OD/Fall17/CrimeChargeOnt" .
 # 
 # http://purl.org/lis590OD/Fall17/EarlyWarningOnt#CrimeCode
 
@@ -279,6 +295,15 @@ dcterms:Agent a owl:Class ;
 	rdfs:subClassOf <http://purl.org/lis590OD/Fall17/CrimeChargeOnt#Statute_Information> ;
 	rdfs:isDefinedBy "http://purl.org/lis590OD/Fall17/CrimeChargeOnt" ;
 	rdfs:label "Crime Code" .
+# 
+# http://purl.org/lis590OD/Fall17/EarlyWarningOnt#Criminal
+
+<http://purl.org/lis590OD/Fall17/EarlyWarningOnt#Criminal> a owl:Class ;
+	rdfs:subClassOf <http://purl.org/lis590OD/Fall17/EarlyWarningOnt#Report> , <http://schema.org/Person> , foaf:Person , _:genid1 .
+
+_:genid1 a owl:Restriction ;
+	owl:onProperty <http://purl.org/lis590OD/Fall17/EarlyWarningOnt#isHarmful> ;
+	owl:someValuesFrom <http://purl.org/lis590OD/Fall17/EarlyWarningOnt#PotentialSurroundingHarm> .
 # 
 # http://purl.org/lis590OD/Fall17/EarlyWarningOnt#DisseminationChannels
 
@@ -298,9 +323,9 @@ dcterms:Agent a owl:Class ;
 # http://purl.org/lis590OD/Fall17/EarlyWarningOnt#KnownCasualities
 
 <http://purl.org/lis590OD/Fall17/EarlyWarningOnt#KnownCasualities> a owl:Class ;
-	rdfs:subClassOf <http://purl.org/lis590OD/Fall17/EarlyWarningOnt#PredefinedDanger> , _:genid1 .
+	rdfs:subClassOf <http://purl.org/lis590OD/Fall17/EarlyWarningOnt#Report> , _:genid2 .
 
-_:genid1 a owl:Restriction ;
+_:genid2 a owl:Restriction ;
 	owl:onProperty <http://purl.org/lis590OD/Fall17/EarlyWarningOnt#casulitiesnumber> ;
 	owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
 	owl:onDataRange xsd:nonNegativeInteger .
@@ -315,18 +340,23 @@ _:genid1 a owl:Restriction ;
 # http://purl.org/lis590OD/Fall17/EarlyWarningOnt#PotentialSurroundingHarm
 
 <http://purl.org/lis590OD/Fall17/EarlyWarningOnt#PotentialSurroundingHarm> a owl:Class ;
-	rdfs:subClassOf event:Event , <http://purl.org/lis590OD/Fall17/EarlyWarningOnt#PredefinedDanger> , <http://schema.org/Action> , <http://schema.org/Event> , _:genid2 .
+	rdfs:subClassOf event:Event , <http://purl.org/lis590OD/Fall17/EarlyWarningOnt#Report> , <http://schema.org/Action> , <http://schema.org/Event> , _:genid3 .
 
-_:genid2 a owl:Restriction ;
+_:genid3 a owl:Restriction ;
 	owl:onProperty <http://www.w3.org/2003/01/geo/wgs84_pos#location> ;
 	owl:someValuesFrom <http://schema.org/Place> .
 
 <http://purl.org/lis590OD/Fall17/EarlyWarningOnt#PotentialSurroundingHarm> rdfs:comment "Report any potential harm there may be in the surroundings (e.g. Gas leak, explosions, etc. )" .
 # 
-# http://purl.org/lis590OD/Fall17/EarlyWarningOnt#PredefinedDanger
+# http://purl.org/lis590OD/Fall17/EarlyWarningOnt#Report
 
-<http://purl.org/lis590OD/Fall17/EarlyWarningOnt#PredefinedDanger> a owl:Class ;
-	rdfs:label "Predefined Danger" .
+<http://purl.org/lis590OD/Fall17/EarlyWarningOnt#Report> a owl:Class ;
+	rdfs:label "When a criminal activity happens, and someone report the incident - then there will be an immediate report in the system to help disseminate the information to the early warning system to the people in the affected areas nearby." .
+# 
+# http://purl.org/lis590OD/Fall17/EarlyWarningOnt#ReportingPerson
+
+<http://purl.org/lis590OD/Fall17/EarlyWarningOnt#ReportingPerson> a owl:Class ;
+	rdfs:subClassOf <http://purl.org/lis590OD/Fall17/EarlyWarningOnt#Report> , <http://schema.org/Person> , foaf:Person .
 # 
 # http://purl.org/lis590OD/Fall17/EarlyWarningOnt#Wobbler
 
@@ -344,9 +374,9 @@ _:genid2 a owl:Restriction ;
 # http://schema.org/GeoCoordinates
 
 <http://schema.org/GeoCoordinates> a owl:Class ;
-	rdfs:subClassOf <http://schema.org/Place> , _:genid3 .
+	rdfs:subClassOf <http://purl.org/lis590OD/Fall17/EarlyWarningOnt#PotentialSurroundingHarm> , <http://purl.org/lis590OD/Fall17/EarlyWarningOnt#Report> , <http://schema.org/Place> , _:genid4 .
 
-_:genid3 a owl:Restriction ;
+_:genid4 a owl:Restriction ;
 	owl:onProperty <http://www.w3.org/2003/01/geo/wgs84_pos#location> ;
 	owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
 	owl:onClass <http://schema.org/GeoCoordinates> .
@@ -366,22 +396,22 @@ _:genid3 a owl:Restriction ;
 # http://schema.org/PostalAddress
 
 <http://schema.org/PostalAddress> a owl:Class ;
-	rdfs:subClassOf <http://schema.org/Place> , _:genid4 .
-
-_:genid4 a owl:Restriction ;
-	owl:onProperty <http://schema.org/addressRegion> ;
-	owl:maxCardinality "1"^^xsd:nonNegativeInteger .
-
-<http://schema.org/PostalAddress> rdfs:subClassOf _:genid5 .
+	rdfs:subClassOf <http://purl.org/lis590OD/Fall17/EarlyWarningOnt#Report> , <http://schema.org/Place> , _:genid5 .
 
 _:genid5 a owl:Restriction ;
-	owl:onProperty <http://schema.org/postalCode> ;
-	owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-	owl:onDataRange xsd:nonNegativeInteger .
+	owl:onProperty <http://schema.org/addressRegion> ;
+	owl:maxCardinality "1"^^xsd:nonNegativeInteger .
 
 <http://schema.org/PostalAddress> rdfs:subClassOf _:genid6 .
 
 _:genid6 a owl:Restriction ;
+	owl:onProperty <http://schema.org/postalCode> ;
+	owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+	owl:onDataRange xsd:nonNegativeInteger .
+
+<http://schema.org/PostalAddress> rdfs:subClassOf _:genid7 .
+
+_:genid7 a owl:Restriction ;
 	owl:onProperty <http://schema.org/streetAddress> ;
 	owl:maxCardinality "1"^^xsd:nonNegativeInteger .
 
@@ -410,30 +440,30 @@ geonames:GeonamesFeature a owl:Class ;
 # http://www.w3.org/2006/time#GeneralDateTimeDescription
 
 time:GeneralDateTimeDescription a owl:Class ;
-	rdfs:subClassOf _:genid7 .
-
-_:genid7 a owl:Restriction ;
-	owl:onProperty time:day ;
-	owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-	owl:onDataRange xsd:nonNegativeInteger .
-
-time:GeneralDateTimeDescription rdfs:subClassOf _:genid8 .
+	rdfs:subClassOf <http://purl.org/lis590OD/Fall17/EarlyWarningOnt#Report> , _:genid8 .
 
 _:genid8 a owl:Restriction ;
-	owl:onProperty time:hour ;
+	owl:onProperty time:day ;
 	owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
 	owl:onDataRange xsd:nonNegativeInteger .
 
 time:GeneralDateTimeDescription rdfs:subClassOf _:genid9 .
 
 _:genid9 a owl:Restriction ;
-	owl:onProperty time:minute ;
+	owl:onProperty time:hour ;
 	owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
 	owl:onDataRange xsd:nonNegativeInteger .
 
 time:GeneralDateTimeDescription rdfs:subClassOf _:genid10 .
 
 _:genid10 a owl:Restriction ;
+	owl:onProperty time:minute ;
+	owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+	owl:onDataRange xsd:nonNegativeInteger .
+
+time:GeneralDateTimeDescription rdfs:subClassOf _:genid11 .
+
+_:genid11 a owl:Restriction ;
 	owl:onProperty time:second ;
 	owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
 	owl:onDataRange xsd:nonNegativeInteger .
@@ -441,37 +471,37 @@ _:genid10 a owl:Restriction ;
 # http://www.w3.org/2006/time#GeneralDurationDescription
 
 time:GeneralDurationDescription a owl:Class ;
-	rdfs:subClassOf time:TemporalDuration , _:genid11 .
-
-_:genid11 a owl:Restriction ;
-	owl:onProperty time:days ;
-	owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-	owl:onDataRange xsd:nonNegativeInteger .
-
-time:GeneralDurationDescription rdfs:subClassOf _:genid12 .
+	rdfs:subClassOf time:TemporalDuration , _:genid12 .
 
 _:genid12 a owl:Restriction ;
-	owl:onProperty time:hours ;
+	owl:onProperty time:days ;
 	owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
 	owl:onDataRange xsd:nonNegativeInteger .
 
 time:GeneralDurationDescription rdfs:subClassOf _:genid13 .
 
 _:genid13 a owl:Restriction ;
-	owl:onProperty time:minutes ;
+	owl:onProperty time:hours ;
 	owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
 	owl:onDataRange xsd:nonNegativeInteger .
 
 time:GeneralDurationDescription rdfs:subClassOf _:genid14 .
 
 _:genid14 a owl:Restriction ;
-	owl:onProperty time:months ;
+	owl:onProperty time:minutes ;
 	owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
 	owl:onDataRange xsd:nonNegativeInteger .
 
 time:GeneralDurationDescription rdfs:subClassOf _:genid15 .
 
 _:genid15 a owl:Restriction ;
+	owl:onProperty time:months ;
+	owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+	owl:onDataRange xsd:nonNegativeInteger .
+
+time:GeneralDurationDescription rdfs:subClassOf _:genid16 .
+
+_:genid16 a owl:Restriction ;
 	owl:onProperty time:years ;
 	owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
 	owl:onDataRange xsd:nonNegativeInteger .
@@ -517,19 +547,8 @@ foaf:OnlineGamingAccount a owl:Class ;
 # http://xmlns.com/foaf/0.1/Person
 
 foaf:Person a owl:Class ;
-	rdfs:subClassOf dcterms:Agent , <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> , foaf:Agent , _:genid16 .
-
-_:genid16 a owl:Restriction ;
-	owl:onProperty <http://purl.org/lis590OD/Fall17/EarlyWarningOnt#isHarmful> ;
-	owl:someValuesFrom <http://purl.org/lis590OD/Fall17/EarlyWarningOnt#PotentialSurroundingHarm> .
-
-foaf:Person rdfs:subClassOf _:genid17 .
-
-_:genid17 a owl:Restriction ;
-	owl:onProperty <http://purl.org/lis590OD/Fall17/EarlyWarningOnt#isHarmful> ;
-	owl:someValuesFrom <http://schema.org/Place> .
-
-foaf:Person rdfs:comment "A person." ;
+	rdfs:subClassOf dcterms:Agent , <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> , foaf:Agent ;
+	rdfs:comment "A person." ;
 	rdfs:label "Person" .
 # 
 # 
@@ -543,7 +562,11 @@ foaf:Person rdfs:comment "A person." ;
 # 
 # http://purl.org/lis590OD/Fall17/EarlyWarningOnt#Jane_Doe
 
-<http://purl.org/lis590OD/Fall17/EarlyWarningOnt#Jane_Doe> a owl:NamedIndividual , <http://schema.org/Person> , foaf:Person .
+<http://purl.org/lis590OD/Fall17/EarlyWarningOnt#Jane_Doe> a owl:NamedIndividual , <http://purl.org/lis590OD/Fall17/EarlyWarningOnt#Criminal> , <http://schema.org/Person> , foaf:Person .
+# 
+# http://purl.org/lis590OD/Fall17/EarlyWarningOnt#Jone_Doe
+
+<http://purl.org/lis590OD/Fall17/EarlyWarningOnt#Jone_Doe> a owl:NamedIndividual , <http://purl.org/lis590OD/Fall17/EarlyWarningOnt#ReportingPerson> , <http://schema.org/Person> , foaf:Person .
 # 
 # http://purl.org/lis590OD/Fall17/EarlyWarningOnt#explosion
 
