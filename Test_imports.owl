@@ -1,1102 +1,854 @@
 <?xml version="1.0"?>
-<Ontology xmlns="http://www.w3.org/2002/07/owl#"
-     xml:base="http://purl.org/lis590OD/Fall17/EarlyWarningOnt"
+<rdf:RDF xmlns="http://www.example.org/ew#"
+     xml:base="http://www.example.org/ew"
+     xmlns:schema="http://schema.org"
+     xmlns:geonames="http://www.geonames.org/ontology#"
+     xmlns:crimecharge="http://purl.org/lis590OD/Fall17/CrimeChargeOnt"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:geosparql="http://www.opengis.net/ont/geosparql#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
-     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     ontologyIRI="http://purl.org/lis590OD/Fall17/EarlyWarningOnt">
-    <Prefix name="" IRI="http://www.example.org/ew#"/>
-    <Prefix name="dc" IRI="http://purl.org/dc/elements/1.1/"/>
-    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
-    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
-    <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
-    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
-    <Prefix name="foaf" IRI="http://xmlns.com/foaf/0.1/"/>
-    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
-    <Prefix name="skos" IRI="http://www.w3.org/2004/02/skos/core#"/>
-    <Prefix name="time" IRI="http://www.w3.org/2006/time#"/>
-    <Prefix name="event" IRI="http://purl.org/NET/c4dm/event.owl#"/>
-    <Prefix name="schema" IRI="http://schema.org"/>
-    <Prefix name="dcterms" IRI="http://purl.org/dc/terms/"/>
-    <Prefix name="geonames" IRI="http://www.geonames.org/ontology#"/>
-    <Prefix name="geosparql" IRI="http://www.opengis.net/ont/geosparql#"/>
-    <Prefix name="crimecharge" IRI="http://purl.org/lis590OD/Fall17/CrimeChargeOnt"/>
-    <Import>http://purl.org/lis590OD/Fall17/CrimeChargeOnt</Import>
-    <Declaration>
-        <DataProperty abbreviatedIRI="time:years"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty abbreviatedIRI="time:day"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Criminal"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Felony"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty abbreviatedIRI="time:month"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#DisseminationChannels"/>
-    </Declaration>
-    <Declaration>
-        <Class abbreviatedIRI="dcterms:Agent"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty IRI="#longitude"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#disseminateBy"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="http://schema.org/Place"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty abbreviatedIRI="time:months"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="http://purl.org/lis590OD/Fall17/CrimeChargeOnt#CrimeClassification"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty abbreviatedIRI="time:hour"/>
-    </Declaration>
-    <Declaration>
-        <Class abbreviatedIRI="foaf:Agent"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="http://schema.org/Person"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty abbreviatedIRI="time:seconds"/>
-    </Declaration>
-    <Declaration>
-        <Class abbreviatedIRI="foaf:OnlineAccount"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty IRI="#city"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="http://schema.org/Event"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Report"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#gunFire"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#has"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="http://schema.org/GeoCoordinates"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#CrimeCode"/>
-    </Declaration>
-    <Declaration>
-        <Class abbreviatedIRI="geonames:Feature"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty abbreviatedIRI="time:hasTime"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty abbreviatedIRI="time:before"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="http://schema.org/PostalAddress"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Jone_Doe"/>
-    </Declaration>
-    <Declaration>
-        <Class abbreviatedIRI="geonames:GeonamesFeature"/>
-    </Declaration>
-    <Declaration>
-        <Class abbreviatedIRI="time:TemporalEntity"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#explosion"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#PotentialSurroundingHarm"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty abbreviatedIRI="time:second"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Jane_Doe"/>
-    </Declaration>
-    <Declaration>
-        <Class abbreviatedIRI="time:GeneralDurationDescription"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty abbreviatedIRI="time:minute"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Infraction"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty abbreviatedIRI="foaf:based_near"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#KnownCasualities"/>
-    </Declaration>
-    <Declaration>
-        <Class abbreviatedIRI="foaf:OnlineChatAccount"/>
-    </Declaration>
-    <Declaration>
-        <Class abbreviatedIRI="time:TemporalDuration"/>
-    </Declaration>
-    <Declaration>
-        <Class abbreviatedIRI="time:GeneralDateTimeDescription"/>
-    </Declaration>
-    <Declaration>
-        <Class abbreviatedIRI="event:Event"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Wobbler"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty abbreviatedIRI="time:hours"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#gasLeak"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#ReportingPerson"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="http://schema.org/location"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#isHarmful"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty abbreviatedIRI="time:weeks"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty IRI="#latitude"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="http://schema.org/Action"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty IRI="#casulitiesnumber"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="http://www.w3.org/2003/01/geo/wgs84_pos#location"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="http://purl.org/lis590OD/Fall17/CrimeChargeOnt#Statute_Information"/>
-    </Declaration>
-    <Declaration>
-        <Class abbreviatedIRI="foaf:OnlineEcommerceAccount"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty abbreviatedIRI="time:minutes"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty abbreviatedIRI="time:after"/>
-    </Declaration>
-    <Declaration>
-        <Class abbreviatedIRI="foaf:OnlineGamingAccount"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty abbreviatedIRI="time:week"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty IRI="http://schema.org/streetAddress"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty abbreviatedIRI="time:year"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty abbreviatedIRI="time:days"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Misdemeanors"/>
-    </Declaration>
-    <Declaration>
-        <Class abbreviatedIRI="foaf:Person"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty IRI="http://schema.org/postalCode"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty IRI="http://schema.org/addressRegion"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty abbreviatedIRI="foaf:knows"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty abbreviatedIRI="foaf:account"/>
-    </Declaration>
-    <EquivalentClasses>
-        <Class abbreviatedIRI="event:Event"/>
-        <Class IRI="http://schema.org/Event"/>
-    </EquivalentClasses>
-    <EquivalentClasses>
-        <Class abbreviatedIRI="dcterms:Agent"/>
-        <Class abbreviatedIRI="foaf:Agent"/>
-    </EquivalentClasses>
-    <EquivalentClasses>
-        <Class IRI="http://schema.org/Person"/>
-        <Class abbreviatedIRI="foaf:Person"/>
-    </EquivalentClasses>
-    <SubClassOf>
-        <Class IRI="http://purl.org/lis590OD/Fall17/CrimeChargeOnt#CrimeClassification"/>
-        <Class IRI="http://purl.org/lis590OD/Fall17/CrimeChargeOnt#Statute_Information"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://purl.org/lis590OD/Fall17/CrimeChargeOnt#Statute_Information"/>
-        <Class IRI="#Criminal"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#CrimeCode"/>
-        <Class IRI="http://purl.org/lis590OD/Fall17/CrimeChargeOnt#Statute_Information"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Criminal"/>
-        <Class IRI="#Report"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Criminal"/>
-        <Class IRI="http://schema.org/Person"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Criminal"/>
-        <Class abbreviatedIRI="foaf:Person"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Criminal"/>
-        <ObjectSomeValuesFrom>
-            <ObjectProperty IRI="#isHarmful"/>
-            <Class IRI="#PotentialSurroundingHarm"/>
-        </ObjectSomeValuesFrom>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Felony"/>
-        <Class IRI="http://purl.org/lis590OD/Fall17/CrimeChargeOnt#CrimeClassification"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Infraction"/>
-        <Class IRI="http://purl.org/lis590OD/Fall17/CrimeChargeOnt#CrimeClassification"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#KnownCasualities"/>
-        <Class IRI="#Report"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#KnownCasualities"/>
-        <DataMaxCardinality cardinality="1">
-            <DataProperty IRI="#casulitiesnumber"/>
-            <Datatype abbreviatedIRI="xsd:nonNegativeInteger"/>
-        </DataMaxCardinality>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Misdemeanors"/>
-        <Class IRI="http://purl.org/lis590OD/Fall17/CrimeChargeOnt#CrimeClassification"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#PotentialSurroundingHarm"/>
-        <Class abbreviatedIRI="event:Event"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#PotentialSurroundingHarm"/>
-        <Class IRI="#Report"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#PotentialSurroundingHarm"/>
-        <Class IRI="http://schema.org/Action"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#PotentialSurroundingHarm"/>
-        <Class IRI="http://schema.org/Event"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#PotentialSurroundingHarm"/>
-        <ObjectSomeValuesFrom>
-            <ObjectProperty IRI="http://www.w3.org/2003/01/geo/wgs84_pos#location"/>
-            <Class IRI="http://schema.org/Place"/>
-        </ObjectSomeValuesFrom>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#ReportingPerson"/>
-        <Class IRI="#Report"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#ReportingPerson"/>
-        <Class IRI="http://schema.org/Person"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#ReportingPerson"/>
-        <Class abbreviatedIRI="foaf:Person"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Wobbler"/>
-        <Class IRI="http://purl.org/lis590OD/Fall17/CrimeChargeOnt#CrimeClassification"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://schema.org/GeoCoordinates"/>
-        <Class IRI="#PotentialSurroundingHarm"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://schema.org/GeoCoordinates"/>
-        <Class IRI="#Report"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://schema.org/GeoCoordinates"/>
-        <Class IRI="http://schema.org/Place"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://schema.org/GeoCoordinates"/>
-        <ObjectExactCardinality cardinality="1">
-            <ObjectProperty IRI="http://www.w3.org/2003/01/geo/wgs84_pos#location"/>
-            <Class IRI="http://schema.org/GeoCoordinates"/>
-        </ObjectExactCardinality>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://schema.org/PostalAddress"/>
-        <Class IRI="#Report"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://schema.org/PostalAddress"/>
-        <Class IRI="http://schema.org/Place"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://schema.org/PostalAddress"/>
-        <DataMaxCardinality cardinality="1">
-            <DataProperty IRI="http://schema.org/addressRegion"/>
-        </DataMaxCardinality>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://schema.org/PostalAddress"/>
-        <DataMaxCardinality cardinality="1">
-            <DataProperty IRI="http://schema.org/postalCode"/>
-            <Datatype abbreviatedIRI="xsd:nonNegativeInteger"/>
-        </DataMaxCardinality>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="http://schema.org/PostalAddress"/>
-        <DataMaxCardinality cardinality="1">
-            <DataProperty IRI="http://schema.org/streetAddress"/>
-        </DataMaxCardinality>
-    </SubClassOf>
-    <SubClassOf>
-        <Class abbreviatedIRI="geonames:Feature"/>
-        <Class IRI="http://schema.org/Place"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class abbreviatedIRI="geonames:Feature"/>
-        <Class IRI="http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class abbreviatedIRI="geonames:GeonamesFeature"/>
-        <Class abbreviatedIRI="geonames:Feature"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class abbreviatedIRI="time:GeneralDateTimeDescription"/>
-        <Class IRI="#Report"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class abbreviatedIRI="time:GeneralDateTimeDescription"/>
-        <DataMaxCardinality cardinality="1">
-            <DataProperty abbreviatedIRI="time:day"/>
-            <Datatype abbreviatedIRI="xsd:nonNegativeInteger"/>
-        </DataMaxCardinality>
-    </SubClassOf>
-    <SubClassOf>
-        <Class abbreviatedIRI="time:GeneralDateTimeDescription"/>
-        <DataMaxCardinality cardinality="1">
-            <DataProperty abbreviatedIRI="time:hour"/>
-            <Datatype abbreviatedIRI="xsd:nonNegativeInteger"/>
-        </DataMaxCardinality>
-    </SubClassOf>
-    <SubClassOf>
-        <Class abbreviatedIRI="time:GeneralDateTimeDescription"/>
-        <DataMaxCardinality cardinality="1">
-            <DataProperty abbreviatedIRI="time:minute"/>
-            <Datatype abbreviatedIRI="xsd:nonNegativeInteger"/>
-        </DataMaxCardinality>
-    </SubClassOf>
-    <SubClassOf>
-        <Class abbreviatedIRI="time:GeneralDateTimeDescription"/>
-        <DataMaxCardinality cardinality="1">
-            <DataProperty abbreviatedIRI="time:second"/>
-            <Datatype abbreviatedIRI="xsd:nonNegativeInteger"/>
-        </DataMaxCardinality>
-    </SubClassOf>
-    <SubClassOf>
-        <Class abbreviatedIRI="time:GeneralDurationDescription"/>
-        <Class abbreviatedIRI="time:TemporalDuration"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class abbreviatedIRI="time:GeneralDurationDescription"/>
-        <DataMaxCardinality cardinality="1">
-            <DataProperty abbreviatedIRI="time:days"/>
-            <Datatype abbreviatedIRI="xsd:nonNegativeInteger"/>
-        </DataMaxCardinality>
-    </SubClassOf>
-    <SubClassOf>
-        <Class abbreviatedIRI="time:GeneralDurationDescription"/>
-        <DataMaxCardinality cardinality="1">
-            <DataProperty abbreviatedIRI="time:hours"/>
-            <Datatype abbreviatedIRI="xsd:nonNegativeInteger"/>
-        </DataMaxCardinality>
-    </SubClassOf>
-    <SubClassOf>
-        <Class abbreviatedIRI="time:GeneralDurationDescription"/>
-        <DataMaxCardinality cardinality="1">
-            <DataProperty abbreviatedIRI="time:minutes"/>
-            <Datatype abbreviatedIRI="xsd:nonNegativeInteger"/>
-        </DataMaxCardinality>
-    </SubClassOf>
-    <SubClassOf>
-        <Class abbreviatedIRI="time:GeneralDurationDescription"/>
-        <DataMaxCardinality cardinality="1">
-            <DataProperty abbreviatedIRI="time:months"/>
-            <Datatype abbreviatedIRI="xsd:nonNegativeInteger"/>
-        </DataMaxCardinality>
-    </SubClassOf>
-    <SubClassOf>
-        <Class abbreviatedIRI="time:GeneralDurationDescription"/>
-        <DataMaxCardinality cardinality="1">
-            <DataProperty abbreviatedIRI="time:years"/>
-            <Datatype abbreviatedIRI="xsd:nonNegativeInteger"/>
-        </DataMaxCardinality>
-    </SubClassOf>
-    <SubClassOf>
-        <Class abbreviatedIRI="foaf:OnlineChatAccount"/>
-        <Class abbreviatedIRI="foaf:OnlineAccount"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class abbreviatedIRI="foaf:OnlineEcommerceAccount"/>
-        <Class abbreviatedIRI="foaf:OnlineAccount"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class abbreviatedIRI="foaf:OnlineGamingAccount"/>
-        <Class abbreviatedIRI="foaf:OnlineAccount"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class abbreviatedIRI="foaf:Person"/>
-        <Class abbreviatedIRI="dcterms:Agent"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class abbreviatedIRI="foaf:Person"/>
-        <Class IRI="http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class abbreviatedIRI="foaf:Person"/>
-        <Class abbreviatedIRI="foaf:Agent"/>
-    </SubClassOf>
-    <ClassAssertion>
-        <Class IRI="#Criminal"/>
-        <NamedIndividual IRI="#Jane_Doe"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="http://schema.org/Person"/>
-        <NamedIndividual IRI="#Jane_Doe"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class abbreviatedIRI="foaf:Person"/>
-        <NamedIndividual IRI="#Jane_Doe"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#ReportingPerson"/>
-        <NamedIndividual IRI="#Jone_Doe"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="http://schema.org/Person"/>
-        <NamedIndividual IRI="#Jone_Doe"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class abbreviatedIRI="foaf:Person"/>
-        <NamedIndividual IRI="#Jone_Doe"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#PotentialSurroundingHarm"/>
-        <NamedIndividual IRI="#explosion"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#PotentialSurroundingHarm"/>
-        <NamedIndividual IRI="#gasLeak"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#PotentialSurroundingHarm"/>
-        <NamedIndividual IRI="#gunFire"/>
-    </ClassAssertion>
-    <EquivalentObjectProperties>
-        <ObjectProperty IRI="http://schema.org/location"/>
-        <ObjectProperty IRI="http://www.w3.org/2003/01/geo/wgs84_pos#location"/>
-    </EquivalentObjectProperties>
-    <SubObjectPropertyOf>
-        <ObjectProperty IRI="http://www.w3.org/2003/01/geo/wgs84_pos#location"/>
-        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
-    </SubObjectPropertyOf>
-    <SubObjectPropertyOf>
-        <ObjectProperty abbreviatedIRI="time:after"/>
-        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
-    </SubObjectPropertyOf>
-    <SubObjectPropertyOf>
-        <ObjectProperty abbreviatedIRI="time:before"/>
-        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
-    </SubObjectPropertyOf>
-    <SubObjectPropertyOf>
-        <ObjectProperty abbreviatedIRI="time:hasTime"/>
-        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
-    </SubObjectPropertyOf>
-    <SubObjectPropertyOf>
-        <ObjectProperty abbreviatedIRI="foaf:account"/>
-        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
-    </SubObjectPropertyOf>
-    <SubObjectPropertyOf>
-        <ObjectProperty abbreviatedIRI="foaf:based_near"/>
-        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
-    </SubObjectPropertyOf>
-    <SubObjectPropertyOf>
-        <ObjectProperty abbreviatedIRI="foaf:knows"/>
-        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
-    </SubObjectPropertyOf>
-    <InverseObjectProperties>
-        <ObjectProperty abbreviatedIRI="time:after"/>
-        <ObjectProperty abbreviatedIRI="time:before"/>
-    </InverseObjectProperties>
-    <AsymmetricObjectProperty>
-        <ObjectProperty abbreviatedIRI="time:after"/>
-    </AsymmetricObjectProperty>
-    <AsymmetricObjectProperty>
-        <ObjectProperty abbreviatedIRI="time:before"/>
-    </AsymmetricObjectProperty>
-    <IrreflexiveObjectProperty>
-        <ObjectProperty IRI="#has"/>
-    </IrreflexiveObjectProperty>
-    <IrreflexiveObjectProperty>
-        <ObjectProperty IRI="#isHarmful"/>
-    </IrreflexiveObjectProperty>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#disseminateBy"/>
-        <Class IRI="#Report"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#has"/>
-        <Class abbreviatedIRI="foaf:Person"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#isHarmful"/>
-        <Class IRI="#Criminal"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="http://schema.org/location"/>
-        <Class IRI="#PotentialSurroundingHarm"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="http://schema.org/location"/>
-        <Class IRI="http://schema.org/Action"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="http://schema.org/location"/>
-        <Class IRI="http://schema.org/Event"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="http://www.w3.org/2003/01/geo/wgs84_pos#location"/>
-        <Class IRI="#PotentialSurroundingHarm"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="http://www.w3.org/2003/01/geo/wgs84_pos#location"/>
-        <Class IRI="http://schema.org/Action"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="http://www.w3.org/2003/01/geo/wgs84_pos#location"/>
-        <Class IRI="http://schema.org/Event"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty abbreviatedIRI="time:after"/>
-        <Class abbreviatedIRI="event:Event"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty abbreviatedIRI="time:after"/>
-        <Class abbreviatedIRI="time:TemporalEntity"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty abbreviatedIRI="time:before"/>
-        <Class abbreviatedIRI="event:Event"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty abbreviatedIRI="time:before"/>
-        <Class abbreviatedIRI="time:TemporalEntity"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty abbreviatedIRI="foaf:account"/>
-        <Class abbreviatedIRI="foaf:Agent"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty abbreviatedIRI="foaf:based_near"/>
-        <Class IRI="http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty abbreviatedIRI="foaf:knows"/>
-        <Class abbreviatedIRI="foaf:Person"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#disseminateBy"/>
-        <Class IRI="#DisseminationChannels"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#has"/>
-        <Class abbreviatedIRI="foaf:OnlineAccount"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="http://schema.org/location"/>
-        <Class IRI="http://schema.org/GeoCoordinates"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="http://schema.org/location"/>
-        <Class IRI="http://schema.org/Place"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="http://schema.org/location"/>
-        <Class IRI="http://schema.org/PostalAddress"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="http://schema.org/location"/>
-        <Class IRI="http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="http://www.w3.org/2003/01/geo/wgs84_pos#location"/>
-        <Class IRI="http://schema.org/GeoCoordinates"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="http://www.w3.org/2003/01/geo/wgs84_pos#location"/>
-        <Class IRI="http://schema.org/Place"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="http://www.w3.org/2003/01/geo/wgs84_pos#location"/>
-        <Class IRI="http://schema.org/PostalAddress"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="http://www.w3.org/2003/01/geo/wgs84_pos#location"/>
-        <Class IRI="http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty abbreviatedIRI="time:after"/>
-        <Class abbreviatedIRI="event:Event"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty abbreviatedIRI="time:after"/>
-        <Class abbreviatedIRI="time:TemporalEntity"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty abbreviatedIRI="time:before"/>
-        <Class abbreviatedIRI="event:Event"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty abbreviatedIRI="time:before"/>
-        <Class abbreviatedIRI="time:TemporalEntity"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty abbreviatedIRI="time:hasTime"/>
-        <Class abbreviatedIRI="time:TemporalEntity"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty abbreviatedIRI="foaf:account"/>
-        <Class abbreviatedIRI="foaf:OnlineAccount"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty abbreviatedIRI="foaf:based_near"/>
-        <Class IRI="http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty abbreviatedIRI="foaf:knows"/>
-        <Class abbreviatedIRI="foaf:Person"/>
-    </ObjectPropertyRange>
-    <SubDataPropertyOf>
-        <DataProperty IRI="#longitude"/>
-        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
-    </SubDataPropertyOf>
-    <SubDataPropertyOf>
-        <DataProperty abbreviatedIRI="time:day"/>
-        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
-    </SubDataPropertyOf>
-    <SubDataPropertyOf>
-        <DataProperty abbreviatedIRI="time:days"/>
-        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
-    </SubDataPropertyOf>
-    <SubDataPropertyOf>
-        <DataProperty abbreviatedIRI="time:hour"/>
-        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
-    </SubDataPropertyOf>
-    <SubDataPropertyOf>
-        <DataProperty abbreviatedIRI="time:hours"/>
-        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
-    </SubDataPropertyOf>
-    <SubDataPropertyOf>
-        <DataProperty abbreviatedIRI="time:minute"/>
-        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
-    </SubDataPropertyOf>
-    <SubDataPropertyOf>
-        <DataProperty abbreviatedIRI="time:minutes"/>
-        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
-    </SubDataPropertyOf>
-    <SubDataPropertyOf>
-        <DataProperty abbreviatedIRI="time:month"/>
-        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
-    </SubDataPropertyOf>
-    <SubDataPropertyOf>
-        <DataProperty abbreviatedIRI="time:months"/>
-        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
-    </SubDataPropertyOf>
-    <SubDataPropertyOf>
-        <DataProperty abbreviatedIRI="time:second"/>
-        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
-    </SubDataPropertyOf>
-    <SubDataPropertyOf>
-        <DataProperty abbreviatedIRI="time:seconds"/>
-        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
-    </SubDataPropertyOf>
-    <SubDataPropertyOf>
-        <DataProperty abbreviatedIRI="time:week"/>
-        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
-    </SubDataPropertyOf>
-    <SubDataPropertyOf>
-        <DataProperty abbreviatedIRI="time:weeks"/>
-        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
-    </SubDataPropertyOf>
-    <SubDataPropertyOf>
-        <DataProperty abbreviatedIRI="time:year"/>
-        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
-    </SubDataPropertyOf>
-    <SubDataPropertyOf>
-        <DataProperty abbreviatedIRI="time:years"/>
-        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
-    </SubDataPropertyOf>
-    <DataPropertyDomain>
-        <DataProperty IRI="#casulitiesnumber"/>
-        <Class IRI="#KnownCasualities"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#city"/>
-        <Class IRI="http://schema.org/Place"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#city"/>
-        <Class IRI="http://schema.org/PostalAddress"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#latitude"/>
-        <Class IRI="http://schema.org/GeoCoordinates"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#longitude"/>
-        <Class IRI="http://schema.org/GeoCoordinates"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="http://schema.org/addressRegion"/>
-        <Class IRI="http://schema.org/PostalAddress"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="http://schema.org/postalCode"/>
-        <Class IRI="http://schema.org/PostalAddress"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="http://schema.org/streetAddress"/>
-        <Class IRI="http://schema.org/PostalAddress"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty abbreviatedIRI="time:days"/>
-        <Class abbreviatedIRI="time:GeneralDurationDescription"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty abbreviatedIRI="time:hour"/>
-        <Class abbreviatedIRI="time:GeneralDateTimeDescription"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty abbreviatedIRI="time:hours"/>
-        <Class abbreviatedIRI="time:GeneralDurationDescription"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty abbreviatedIRI="time:minute"/>
-        <Class abbreviatedIRI="time:GeneralDateTimeDescription"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty abbreviatedIRI="time:minutes"/>
-        <Class abbreviatedIRI="time:GeneralDurationDescription"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty abbreviatedIRI="time:month"/>
-        <Class abbreviatedIRI="time:GeneralDateTimeDescription"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty abbreviatedIRI="time:months"/>
-        <Class abbreviatedIRI="time:GeneralDurationDescription"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty abbreviatedIRI="time:second"/>
-        <Class abbreviatedIRI="time:GeneralDateTimeDescription"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty abbreviatedIRI="time:seconds"/>
-        <Class abbreviatedIRI="time:GeneralDurationDescription"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty abbreviatedIRI="time:week"/>
-        <Class abbreviatedIRI="time:GeneralDateTimeDescription"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty abbreviatedIRI="time:weeks"/>
-        <Class abbreviatedIRI="time:GeneralDurationDescription"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty abbreviatedIRI="time:year"/>
-        <Class abbreviatedIRI="time:GeneralDateTimeDescription"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty abbreviatedIRI="time:years"/>
-        <Class abbreviatedIRI="time:GeneralDurationDescription"/>
-    </DataPropertyDomain>
-    <DataPropertyRange>
-        <DataProperty IRI="#casulitiesnumber"/>
-        <Datatype abbreviatedIRI="xsd:nonNegativeInteger"/>
-    </DataPropertyRange>
-    <DataPropertyRange>
-        <DataProperty IRI="#city"/>
-        <Datatype abbreviatedIRI="rdfs:Literal"/>
-    </DataPropertyRange>
-    <DataPropertyRange>
-        <DataProperty IRI="#latitude"/>
-        <Datatype abbreviatedIRI="xsd:decimal"/>
-    </DataPropertyRange>
-    <DataPropertyRange>
-        <DataProperty IRI="#longitude"/>
-        <Datatype abbreviatedIRI="xsd:decimal"/>
-    </DataPropertyRange>
-    <DataPropertyRange>
-        <DataProperty IRI="http://schema.org/addressRegion"/>
-        <Datatype abbreviatedIRI="rdfs:Literal"/>
-    </DataPropertyRange>
-    <DataPropertyRange>
-        <DataProperty IRI="http://schema.org/postalCode"/>
-        <Datatype abbreviatedIRI="xsd:nonNegativeInteger"/>
-    </DataPropertyRange>
-    <DataPropertyRange>
-        <DataProperty IRI="http://schema.org/streetAddress"/>
-        <Datatype abbreviatedIRI="rdfs:Literal"/>
-    </DataPropertyRange>
-    <DataPropertyRange>
-        <DataProperty abbreviatedIRI="time:days"/>
-        <Datatype abbreviatedIRI="xsd:decimal"/>
-    </DataPropertyRange>
-    <DataPropertyRange>
-        <DataProperty abbreviatedIRI="time:hours"/>
-        <Datatype abbreviatedIRI="xsd:decimal"/>
-    </DataPropertyRange>
-    <DataPropertyRange>
-        <DataProperty abbreviatedIRI="time:minutes"/>
-        <Datatype abbreviatedIRI="xsd:decimal"/>
-    </DataPropertyRange>
-    <DataPropertyRange>
-        <DataProperty abbreviatedIRI="time:months"/>
-        <Datatype abbreviatedIRI="xsd:decimal"/>
-    </DataPropertyRange>
-    <DataPropertyRange>
-        <DataProperty abbreviatedIRI="time:seconds"/>
-        <Datatype abbreviatedIRI="xsd:decimal"/>
-    </DataPropertyRange>
-    <DataPropertyRange>
-        <DataProperty abbreviatedIRI="time:weeks"/>
-        <Datatype abbreviatedIRI="xsd:decimal"/>
-    </DataPropertyRange>
-    <DataPropertyRange>
-        <DataProperty abbreviatedIRI="time:years"/>
-        <Datatype abbreviatedIRI="xsd:decimal"/>
-    </DataPropertyRange>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>dcterms:Agent</AbbreviatedIRI>
-        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Agent</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>http://purl.org/lis590OD/Fall17/CrimeChargeOnt#CrimeClassification</IRI>
-        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Categorization of crimes into misdemeanors, felonies, infractions, and wobblers.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
-        <IRI>http://purl.org/lis590OD/Fall17/CrimeChargeOnt#CrimeClassification</IRI>
-        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">http://purl.org/lis590OD/Fall17/CrimeChargeOnt</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>http://purl.org/lis590OD/Fall17/CrimeChargeOnt#CrimeClassification</IRI>
-        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Crime Classification</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
-        <IRI>http://purl.org/lis590OD/Fall17/CrimeChargeOnt#Statute_Information</IRI>
-        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">http://purl.org/lis590OD/Fall17/CrimeChargeOnt</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
-        <IRI>#CrimeCode</IRI>
-        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">http://purl.org/lis590OD/Fall17/CrimeChargeOnt</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#CrimeCode</IRI>
-        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Crime Code</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#DisseminationChannels</IRI>
-        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Dissemination Channels</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#KnownCasualities</IRI>
-        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Whether or not there were any casuality. If there is, how serious it was.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#PotentialSurroundingHarm</IRI>
-        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Report any potential harm there may be in the surroundings (e.g. Gas leak, explosions, etc. )</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#Report</IRI>
-        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">When a criminal activity happens, and someone report the incident - then there will be an immediate report in the system to help disseminate the information to the early warning system to the people in the affected areas nearby.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>http://schema.org/GeoCoordinates</IRI>
-        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">The geographic coordinates of a place or event.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>http://schema.org/Person</IRI>
-        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Person</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>http://schema.org/PostalAddress</IRI>
-        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">The mailing address.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>http://schema.org/addressRegion</IRI>
-        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">State</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>http://schema.org/location</IRI>
-        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">The location of for example where the event is happening, an organization is located, or where an action takes place.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>http://schema.org/location</IRI>
-        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Location</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>geonames:Feature</AbbreviatedIRI>
-        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Feature</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <AbbreviatedIRI>geonames:GeonamesFeature</AbbreviatedIRI>
-        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">A feature described in geonames database, uniquely defined by its geonames identifier</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>geonames:GeonamesFeature</AbbreviatedIRI>
-        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Geonames Feature</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing</IRI>
-        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Anything with spatial extent, i.e. size, shape, or position.
- e.g. people, places, bowling balls, as well as abstract areas like cubes.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing</IRI>
-        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Spatial Thing</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>http://www.w3.org/2003/01/geo/wgs84_pos#location</IRI>
-        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">The relation between something and the point, 
+     xmlns:dcterms="http://purl.org/dc/terms/"
+     xmlns:time="http://www.w3.org/2006/time#"
+     xmlns:event="http://purl.org/NET/c4dm/event.owl#"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <owl:Ontology rdf:about="http://purl.org/lis590OD/Fall17/EarlyWarningOnt">
+        <owl:imports rdf:resource="http://purl.org/lis590OD/Fall17/CrimeChargeOnt"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/lis590OD/Fall17/EarlyWarningOnt#disseminateBy -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/lis590OD/Fall17/EarlyWarningOnt#disseminateBy">
+        <rdfs:domain rdf:resource="http://purl.org/lis590OD/Fall17/EarlyWarningOnt#Report"/>
+        <rdfs:range rdf:resource="http://purl.org/lis590OD/Fall17/EarlyWarningOnt#DisseminationChannels"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/lis590OD/Fall17/EarlyWarningOnt#has -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/lis590OD/Fall17/EarlyWarningOnt#has">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+        <rdfs:range rdf:resource="http://xmlns.com/foaf/0.1/OnlineAccount"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/lis590OD/Fall17/EarlyWarningOnt#isHarmful -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/lis590OD/Fall17/EarlyWarningOnt#isHarmful">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://purl.org/lis590OD/Fall17/EarlyWarningOnt#Criminal"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://schema.org/location -->
+
+    <owl:ObjectProperty rdf:about="http://schema.org/location">
+        <owl:equivalentProperty rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#location"/>
+        <rdfs:domain rdf:resource="http://purl.org/lis590OD/Fall17/EarlyWarningOnt#PotentialSurroundingHarm"/>
+        <rdfs:domain rdf:resource="http://schema.org/Action"/>
+        <rdfs:domain rdf:resource="http://schema.org/Event"/>
+        <rdfs:range rdf:resource="http://schema.org/GeoCoordinates"/>
+        <rdfs:range rdf:resource="http://schema.org/Place"/>
+        <rdfs:range rdf:resource="http://schema.org/PostalAddress"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing"/>
+        <rdfs:comment>The location of for example where the event is happening, an organization is located, or where an action takes place.</rdfs:comment>
+        <rdfs:label>Location</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2003/01/geo/wgs84_pos#location -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/2003/01/geo/wgs84_pos#location">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://purl.org/lis590OD/Fall17/EarlyWarningOnt#PotentialSurroundingHarm"/>
+        <rdfs:domain rdf:resource="http://schema.org/Action"/>
+        <rdfs:domain rdf:resource="http://schema.org/Event"/>
+        <rdfs:range rdf:resource="http://schema.org/GeoCoordinates"/>
+        <rdfs:range rdf:resource="http://schema.org/Place"/>
+        <rdfs:range rdf:resource="http://schema.org/PostalAddress"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing"/>
+        <rdfs:comment>The relation between something and the point, 
  or other geometrical thing in space, where it is.  For example, the realtionship between
  a radio tower and a Point with a given lat and long.
  Or a relationship between a park and its outline as a closed arc of points, or a road and
  its location as a arc (a sequence of points).
  Clearly in practice there will be limit to the accuracy of any such statement, but one would expect
- an accuracy appropriate for the size of the object and uses such as mapping .</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>http://www.w3.org/2003/01/geo/wgs84_pos#location</IRI>
-        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">location</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <AbbreviatedIRI>foaf:Agent</AbbreviatedIRI>
-        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">An agent (eg. person, group, software or physical artifact).</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>foaf:Agent</AbbreviatedIRI>
-        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Agent</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <AbbreviatedIRI>foaf:OnlineAccount</AbbreviatedIRI>
-        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">An online account.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>foaf:OnlineAccount</AbbreviatedIRI>
-        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Online Account</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>foaf:OnlineChatAccount</AbbreviatedIRI>
-        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Online Chat Account</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>foaf:OnlineEcommerceAccount</AbbreviatedIRI>
-        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Online Ecommerce Account</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>foaf:OnlineGamingAccount</AbbreviatedIRI>
-        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Online Gaming Account</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <AbbreviatedIRI>foaf:Person</AbbreviatedIRI>
-        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">A person.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <AbbreviatedIRI>foaf:Person</AbbreviatedIRI>
-        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Person</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <AbbreviatedIRI>foaf:based_near</AbbreviatedIRI>
-        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">A location that something is based near, for some broadly human notion of near.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <AbbreviatedIRI>foaf:knows</AbbreviatedIRI>
-        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">A person known by this person (indicating some level of reciprocated interaction between the parties).</Literal>
-    </AnnotationAssertion>
-</Ontology>
+ an accuracy appropriate for the size of the object and uses such as mapping .</rdfs:comment>
+        <rdfs:label>location</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2006/time#after -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/2006/time#after">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="http://www.w3.org/2006/time#before"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://purl.org/NET/c4dm/event.owl#Event"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
+        <rdfs:range rdf:resource="http://purl.org/NET/c4dm/event.owl#Event"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2006/time#before -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/2006/time#before">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://purl.org/NET/c4dm/event.owl#Event"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
+        <rdfs:range rdf:resource="http://purl.org/NET/c4dm/event.owl#Event"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2006/time#hasTime -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/2006/time#hasTime">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/account -->
+
+    <owl:ObjectProperty rdf:about="http://xmlns.com/foaf/0.1/account">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+        <rdfs:range rdf:resource="http://xmlns.com/foaf/0.1/OnlineAccount"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/based_near -->
+
+    <owl:ObjectProperty rdf:about="http://xmlns.com/foaf/0.1/based_near">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing"/>
+        <rdfs:comment>A location that something is based near, for some broadly human notion of near.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/knows -->
+
+    <owl:ObjectProperty rdf:about="http://xmlns.com/foaf/0.1/knows">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+        <rdfs:range rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+        <rdfs:comment>A person known by this person (indicating some level of reciprocated interaction between the parties).</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/lis590OD/Fall17/EarlyWarningOnt#casulitiesnumber -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/lis590OD/Fall17/EarlyWarningOnt#casulitiesnumber">
+        <rdfs:domain rdf:resource="http://purl.org/lis590OD/Fall17/EarlyWarningOnt#KnownCasualities"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/lis590OD/Fall17/EarlyWarningOnt#city -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/lis590OD/Fall17/EarlyWarningOnt#city">
+        <rdfs:domain rdf:resource="http://schema.org/Place"/>
+        <rdfs:domain rdf:resource="http://schema.org/PostalAddress"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/lis590OD/Fall17/EarlyWarningOnt#latitude -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/lis590OD/Fall17/EarlyWarningOnt#latitude">
+        <rdfs:domain rdf:resource="http://schema.org/GeoCoordinates"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/lis590OD/Fall17/EarlyWarningOnt#longitude -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/lis590OD/Fall17/EarlyWarningOnt#longitude">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://schema.org/GeoCoordinates"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://schema.org/addressRegion -->
+
+    <owl:DatatypeProperty rdf:about="http://schema.org/addressRegion">
+        <rdfs:domain rdf:resource="http://schema.org/PostalAddress"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:comment>State</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://schema.org/postalCode -->
+
+    <owl:DatatypeProperty rdf:about="http://schema.org/postalCode">
+        <rdfs:domain rdf:resource="http://schema.org/PostalAddress"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://schema.org/streetAddress -->
+
+    <owl:DatatypeProperty rdf:about="http://schema.org/streetAddress">
+        <rdfs:domain rdf:resource="http://schema.org/PostalAddress"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2006/time#day -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2006/time#day">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2006/time#days -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2006/time#days">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/2006/time#GeneralDurationDescription"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2006/time#hour -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2006/time#hour">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/2006/time#GeneralDateTimeDescription"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2006/time#hours -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2006/time#hours">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/2006/time#GeneralDurationDescription"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2006/time#minute -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2006/time#minute">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/2006/time#GeneralDateTimeDescription"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2006/time#minutes -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2006/time#minutes">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/2006/time#GeneralDurationDescription"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2006/time#month -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2006/time#month">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/2006/time#GeneralDateTimeDescription"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2006/time#months -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2006/time#months">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/2006/time#GeneralDurationDescription"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2006/time#second -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2006/time#second">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/2006/time#GeneralDateTimeDescription"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2006/time#seconds -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2006/time#seconds">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/2006/time#GeneralDurationDescription"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2006/time#week -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2006/time#week">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/2006/time#GeneralDateTimeDescription"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2006/time#weeks -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2006/time#weeks">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/2006/time#GeneralDurationDescription"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2006/time#year -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2006/time#year">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/2006/time#GeneralDateTimeDescription"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2006/time#years -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2006/time#years">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/2006/time#GeneralDurationDescription"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/NET/c4dm/event.owl#Event -->
+
+    <owl:Class rdf:about="http://purl.org/NET/c4dm/event.owl#Event">
+        <owl:equivalentClass rdf:resource="http://schema.org/Event"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/dc/terms/Agent -->
+
+    <owl:Class rdf:about="http://purl.org/dc/terms/Agent">
+        <owl:equivalentClass rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+        <rdfs:label>Agent</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/lis590OD/Fall17/CrimeChargeOnt#CrimeClassification -->
+
+    <owl:Class rdf:about="http://purl.org/lis590OD/Fall17/CrimeChargeOnt#CrimeClassification">
+        <rdfs:subClassOf rdf:resource="http://purl.org/lis590OD/Fall17/CrimeChargeOnt#Statute_Information"/>
+        <rdfs:comment>Categorization of crimes into misdemeanors, felonies, infractions, and wobblers.</rdfs:comment>
+        <rdfs:isDefinedBy>http://purl.org/lis590OD/Fall17/CrimeChargeOnt</rdfs:isDefinedBy>
+        <rdfs:label>Crime Classification</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/lis590OD/Fall17/CrimeChargeOnt#Statute_Information -->
+
+    <owl:Class rdf:about="http://purl.org/lis590OD/Fall17/CrimeChargeOnt#Statute_Information">
+        <rdfs:subClassOf rdf:resource="http://purl.org/lis590OD/Fall17/EarlyWarningOnt#Criminal"/>
+        <rdfs:isDefinedBy>http://purl.org/lis590OD/Fall17/CrimeChargeOnt</rdfs:isDefinedBy>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/lis590OD/Fall17/EarlyWarningOnt#CrimeCode -->
+
+    <owl:Class rdf:about="http://purl.org/lis590OD/Fall17/EarlyWarningOnt#CrimeCode">
+        <rdfs:subClassOf rdf:resource="http://purl.org/lis590OD/Fall17/CrimeChargeOnt#Statute_Information"/>
+        <rdfs:isDefinedBy>http://purl.org/lis590OD/Fall17/CrimeChargeOnt</rdfs:isDefinedBy>
+        <rdfs:label>Crime Code</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/lis590OD/Fall17/EarlyWarningOnt#Criminal -->
+
+    <owl:Class rdf:about="http://purl.org/lis590OD/Fall17/EarlyWarningOnt#Criminal">
+        <rdfs:subClassOf rdf:resource="http://purl.org/lis590OD/Fall17/EarlyWarningOnt#Report"/>
+        <rdfs:subClassOf rdf:resource="http://schema.org/Person"/>
+        <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/lis590OD/Fall17/EarlyWarningOnt#isHarmful"/>
+                <owl:someValuesFrom rdf:resource="http://purl.org/lis590OD/Fall17/EarlyWarningOnt#PotentialSurroundingHarm"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/lis590OD/Fall17/EarlyWarningOnt#DisseminationChannels -->
+
+    <owl:Class rdf:about="http://purl.org/lis590OD/Fall17/EarlyWarningOnt#DisseminationChannels">
+        <rdfs:label>Dissemination Channels</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/lis590OD/Fall17/EarlyWarningOnt#Felony -->
+
+    <owl:Class rdf:about="http://purl.org/lis590OD/Fall17/EarlyWarningOnt#Felony">
+        <rdfs:subClassOf rdf:resource="http://purl.org/lis590OD/Fall17/CrimeChargeOnt#CrimeClassification"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/lis590OD/Fall17/EarlyWarningOnt#Infraction -->
+
+    <owl:Class rdf:about="http://purl.org/lis590OD/Fall17/EarlyWarningOnt#Infraction">
+        <rdfs:subClassOf rdf:resource="http://purl.org/lis590OD/Fall17/CrimeChargeOnt#CrimeClassification"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/lis590OD/Fall17/EarlyWarningOnt#KnownCasualities -->
+
+    <owl:Class rdf:about="http://purl.org/lis590OD/Fall17/EarlyWarningOnt#KnownCasualities">
+        <rdfs:subClassOf rdf:resource="http://purl.org/lis590OD/Fall17/EarlyWarningOnt#Report"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/lis590OD/Fall17/EarlyWarningOnt#casulitiesnumber"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Whether or not there were any casuality. If there is, how serious it was.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/lis590OD/Fall17/EarlyWarningOnt#Misdemeanors -->
+
+    <owl:Class rdf:about="http://purl.org/lis590OD/Fall17/EarlyWarningOnt#Misdemeanors">
+        <rdfs:subClassOf rdf:resource="http://purl.org/lis590OD/Fall17/CrimeChargeOnt#CrimeClassification"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/lis590OD/Fall17/EarlyWarningOnt#PotentialSurroundingHarm -->
+
+    <owl:Class rdf:about="http://purl.org/lis590OD/Fall17/EarlyWarningOnt#PotentialSurroundingHarm">
+        <rdfs:subClassOf rdf:resource="http://purl.org/NET/c4dm/event.owl#Event"/>
+        <rdfs:subClassOf rdf:resource="http://purl.org/lis590OD/Fall17/EarlyWarningOnt#Report"/>
+        <rdfs:subClassOf rdf:resource="http://schema.org/Action"/>
+        <rdfs:subClassOf rdf:resource="http://schema.org/Event"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#location"/>
+                <owl:someValuesFrom rdf:resource="http://schema.org/Place"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Report any potential harm there may be in the surroundings (e.g. Gas leak, explosions, etc. )</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/lis590OD/Fall17/EarlyWarningOnt#Report -->
+
+    <owl:Class rdf:about="http://purl.org/lis590OD/Fall17/EarlyWarningOnt#Report">
+        <rdfs:label>When a criminal activity happens, and someone report the incident - then there will be an immediate report in the system to help disseminate the information to the early warning system to the people in the affected areas nearby.</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/lis590OD/Fall17/EarlyWarningOnt#ReportingPerson -->
+
+    <owl:Class rdf:about="http://purl.org/lis590OD/Fall17/EarlyWarningOnt#ReportingPerson">
+        <rdfs:subClassOf rdf:resource="http://purl.org/lis590OD/Fall17/EarlyWarningOnt#Report"/>
+        <rdfs:subClassOf rdf:resource="http://schema.org/Person"/>
+        <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/lis590OD/Fall17/EarlyWarningOnt#Wobbler -->
+
+    <owl:Class rdf:about="http://purl.org/lis590OD/Fall17/EarlyWarningOnt#Wobbler">
+        <rdfs:subClassOf rdf:resource="http://purl.org/lis590OD/Fall17/CrimeChargeOnt#CrimeClassification"/>
+    </owl:Class>
+    
+
+
+    <!-- http://schema.org/Action -->
+
+    <owl:Class rdf:about="http://schema.org/Action"/>
+    
+
+
+    <!-- http://schema.org/Event -->
+
+    <owl:Class rdf:about="http://schema.org/Event"/>
+    
+
+
+    <!-- http://schema.org/GeoCoordinates -->
+
+    <owl:Class rdf:about="http://schema.org/GeoCoordinates">
+        <rdfs:subClassOf rdf:resource="http://purl.org/lis590OD/Fall17/EarlyWarningOnt#PotentialSurroundingHarm"/>
+        <rdfs:subClassOf rdf:resource="http://purl.org/lis590OD/Fall17/EarlyWarningOnt#Report"/>
+        <rdfs:subClassOf rdf:resource="http://schema.org/Place"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#location"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://schema.org/GeoCoordinates"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>The geographic coordinates of a place or event.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://schema.org/Person -->
+
+    <owl:Class rdf:about="http://schema.org/Person">
+        <owl:equivalentClass rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+        <rdfs:label>Person</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://schema.org/Place -->
+
+    <owl:Class rdf:about="http://schema.org/Place"/>
+    
+
+
+    <!-- http://schema.org/PostalAddress -->
+
+    <owl:Class rdf:about="http://schema.org/PostalAddress">
+        <rdfs:subClassOf rdf:resource="http://purl.org/lis590OD/Fall17/EarlyWarningOnt#Report"/>
+        <rdfs:subClassOf rdf:resource="http://schema.org/Place"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://schema.org/addressRegion"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://schema.org/postalCode"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://schema.org/streetAddress"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>The mailing address.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.geonames.org/ontology#Feature -->
+
+    <owl:Class rdf:about="http://www.geonames.org/ontology#Feature">
+        <rdfs:subClassOf rdf:resource="http://schema.org/Place"/>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing"/>
+        <rdfs:label>Feature</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.geonames.org/ontology#GeonamesFeature -->
+
+    <owl:Class rdf:about="http://www.geonames.org/ontology#GeonamesFeature">
+        <rdfs:subClassOf rdf:resource="http://www.geonames.org/ontology#Feature"/>
+        <rdfs:comment>A feature described in geonames database, uniquely defined by its geonames identifier</rdfs:comment>
+        <rdfs:label>Geonames Feature</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing -->
+
+    <owl:Class rdf:about="http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing">
+        <rdfs:comment>Anything with spatial extent, i.e. size, shape, or position.
+ e.g. people, places, bowling balls, as well as abstract areas like cubes.</rdfs:comment>
+        <rdfs:label>Spatial Thing</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2006/time#GeneralDateTimeDescription -->
+
+    <owl:Class rdf:about="http://www.w3.org/2006/time#GeneralDateTimeDescription">
+        <rdfs:subClassOf rdf:resource="http://purl.org/lis590OD/Fall17/EarlyWarningOnt#Report"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/2006/time#day"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/2006/time#hour"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/2006/time#minute"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/2006/time#second"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2006/time#GeneralDurationDescription -->
+
+    <owl:Class rdf:about="http://www.w3.org/2006/time#GeneralDurationDescription">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2006/time#TemporalDuration"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/2006/time#days"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/2006/time#hours"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/2006/time#minutes"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/2006/time#months"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/2006/time#years"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2006/time#TemporalDuration -->
+
+    <owl:Class rdf:about="http://www.w3.org/2006/time#TemporalDuration"/>
+    
+
+
+    <!-- http://www.w3.org/2006/time#TemporalEntity -->
+
+    <owl:Class rdf:about="http://www.w3.org/2006/time#TemporalEntity"/>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/Agent -->
+
+    <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Agent">
+        <rdfs:comment>An agent (eg. person, group, software or physical artifact).</rdfs:comment>
+        <rdfs:label>Agent</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/OnlineAccount -->
+
+    <owl:Class rdf:about="http://xmlns.com/foaf/0.1/OnlineAccount">
+        <rdfs:comment>An online account.</rdfs:comment>
+        <rdfs:label>Online Account</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/OnlineChatAccount -->
+
+    <owl:Class rdf:about="http://xmlns.com/foaf/0.1/OnlineChatAccount">
+        <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/OnlineAccount"/>
+        <rdfs:label>Online Chat Account</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/OnlineEcommerceAccount -->
+
+    <owl:Class rdf:about="http://xmlns.com/foaf/0.1/OnlineEcommerceAccount">
+        <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/OnlineAccount"/>
+        <rdfs:label>Online Ecommerce Account</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/OnlineGamingAccount -->
+
+    <owl:Class rdf:about="http://xmlns.com/foaf/0.1/OnlineGamingAccount">
+        <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/OnlineAccount"/>
+        <rdfs:label>Online Gaming Account</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/Person -->
+
+    <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Person">
+        <rdfs:subClassOf rdf:resource="http://purl.org/dc/terms/Agent"/>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing"/>
+        <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+        <rdfs:comment>A person.</rdfs:comment>
+        <rdfs:label>Person</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/lis590OD/Fall17/EarlyWarningOnt#Jane_Doe -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/lis590OD/Fall17/EarlyWarningOnt#Jane_Doe">
+        <rdf:type rdf:resource="http://purl.org/lis590OD/Fall17/EarlyWarningOnt#Criminal"/>
+        <rdf:type rdf:resource="http://schema.org/Person"/>
+        <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/lis590OD/Fall17/EarlyWarningOnt#Jone_Doe -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/lis590OD/Fall17/EarlyWarningOnt#Jone_Doe">
+        <rdf:type rdf:resource="http://purl.org/lis590OD/Fall17/EarlyWarningOnt#ReportingPerson"/>
+        <rdf:type rdf:resource="http://schema.org/Person"/>
+        <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/lis590OD/Fall17/EarlyWarningOnt#explosion -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/lis590OD/Fall17/EarlyWarningOnt#explosion">
+        <rdf:type rdf:resource="http://purl.org/lis590OD/Fall17/EarlyWarningOnt#PotentialSurroundingHarm"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/lis590OD/Fall17/EarlyWarningOnt#gasLeak -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/lis590OD/Fall17/EarlyWarningOnt#gasLeak">
+        <rdf:type rdf:resource="http://purl.org/lis590OD/Fall17/EarlyWarningOnt#PotentialSurroundingHarm"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://purl.org/lis590OD/Fall17/EarlyWarningOnt#gunFire -->
+
+    <owl:NamedIndividual rdf:about="http://purl.org/lis590OD/Fall17/EarlyWarningOnt#gunFire">
+        <rdf:type rdf:resource="http://purl.org/lis590OD/Fall17/EarlyWarningOnt#PotentialSurroundingHarm"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
 
 
 
