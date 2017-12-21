@@ -1,856 +1,583 @@
-<?xml version="1.0"?>
-<rdf:RDF xmlns="http://www.example.org/ew#"
-     xml:base="http://www.example.org/ew"
-     xmlns:schema="http://schema.org"
-     xmlns:geonames="http://www.geonames.org/ontology#"
-     xmlns:crimecharge="http://purl.org/lis590OD/Fall17/CrimeChargeOnt"
-     xmlns:owl="http://www.w3.org/2002/07/owl#"
-     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
-     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     xmlns:geosparql="http://www.opengis.net/ont/geosparql#"
-     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-     xmlns:xml="http://www.w3.org/XML/1998/namespace"
-     xmlns:dcterms="http://purl.org/dc/terms/"
-     xmlns:time="http://www.w3.org/2006/time#"
-     xmlns:event="http://purl.org/NET/c4dm/event.owl#"
-     xmlns:foaf="http://xmlns.com/foaf/0.1/"
-     xmlns:dc="http://purl.org/dc/elements/1.1/">
-    <owl:Ontology rdf:about="http://purl.org/lis590OD/Fall17/EarlyWarningOnt">
-        <owl:imports rdf:resource="http://purl.org/lis590OD/Fall17/CrimeChargeOnt"/>
-    </owl:Ontology>
-    
+@prefix : <http://www.example.org/ew#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix event: <http://purl.org/NET/c4dm/event.owl#> .
+@prefix schema: <http://schema.org> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix geonames: <http://www.geonames.org/ontology#> .
+@prefix geosparql: <http://www.opengis.net/ont/geosparql#> .
+@prefix crimecharge: <http://purl.org/lis590OD/Fall17/CrimeChargeOnt> .
+@base <http://purl.org/lis590OD/Fall17/EarlyWarningOnt> .
+
+<http://purl.org/lis590OD/Fall17/EarlyWarningOnt> rdf:type owl:Ontology ;
+                                                   owl:imports crimecharge: .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://purl.org/lis590OD/Fall17/EarlyWarningOnt#disseminateBy
+:disseminateBy rdf:type owl:ObjectProperty ;
+               rdfs:domain :Report ;
+               rdfs:range :DisseminationChannels .
 
 
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Object Properties
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    
+###  http://purl.org/lis590OD/Fall17/EarlyWarningOnt#has
+:has rdf:type owl:ObjectProperty ,
+              owl:IrreflexiveProperty ;
+     rdfs:domain foaf:Person ;
+     rdfs:range foaf:OnlineAccount .
 
 
-    <!-- http://purl.org/lis590OD/Fall17/EarlyWarningOnt#disseminateBy -->
-
-    <owl:ObjectProperty rdf:about="http://purl.org/lis590OD/Fall17/EarlyWarningOnt#disseminateBy">
-        <rdfs:domain rdf:resource="http://purl.org/lis590OD/Fall17/EarlyWarningOnt#Report"/>
-        <rdfs:range rdf:resource="http://purl.org/lis590OD/Fall17/EarlyWarningOnt#DisseminationChannels"/>
-    </owl:ObjectProperty>
-    
+###  http://purl.org/lis590OD/Fall17/EarlyWarningOnt#isHarmful
+:isHarmful rdf:type owl:ObjectProperty ,
+                    owl:IrreflexiveProperty ;
+           rdfs:domain :Criminal .
 
 
-    <!-- http://purl.org/lis590OD/Fall17/EarlyWarningOnt#has -->
-
-    <owl:ObjectProperty rdf:about="http://purl.org/lis590OD/Fall17/EarlyWarningOnt#has">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
-        <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
-        <rdfs:range rdf:resource="http://xmlns.com/foaf/0.1/OnlineAccount"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://purl.org/lis590OD/Fall17/EarlyWarningOnt#isHarmful -->
-
-    <owl:ObjectProperty rdf:about="http://purl.org/lis590OD/Fall17/EarlyWarningOnt#isHarmful">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
-        <rdfs:domain rdf:resource="http://purl.org/lis590OD/Fall17/EarlyWarningOnt#Criminal"/>
-    </owl:ObjectProperty>
-    
+###  http://schema.org/location
+schema:/location rdf:type owl:ObjectProperty ;
+                 owl:equivalentProperty <http://www.w3.org/2003/01/geo/wgs84_pos#location> ;
+                 rdfs:domain :PotentialSurroundingHarm ,
+                             schema:/Action ,
+                             schema:/Event ;
+                 rdfs:range schema:/GeoCoordinates ,
+                            schema:/Place ,
+                            schema:/PostalAddress ,
+                            <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> ;
+                 rdfs:comment "The location of for example where the event is happening, an organization is located, or where an action takes place." ;
+                 rdfs:label "Location" .
 
 
-    <!-- http://schema.org/location -->
-
-    <owl:ObjectProperty rdf:about="http://schema.org/location">
-        <owl:equivalentProperty rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#location"/>
-        <rdfs:domain rdf:resource="http://purl.org/lis590OD/Fall17/EarlyWarningOnt#PotentialSurroundingHarm"/>
-        <rdfs:domain rdf:resource="http://schema.org/Action"/>
-        <rdfs:domain rdf:resource="http://schema.org/Event"/>
-        <rdfs:range rdf:resource="http://schema.org/GeoCoordinates"/>
-        <rdfs:range rdf:resource="http://schema.org/Place"/>
-        <rdfs:range rdf:resource="http://schema.org/PostalAddress"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing"/>
-        <rdfs:comment>The location of for example where the event is happening, an organization is located, or where an action takes place.</rdfs:comment>
-        <rdfs:label>Location</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.w3.org/2003/01/geo/wgs84_pos#location -->
-
-    <owl:ObjectProperty rdf:about="http://www.w3.org/2003/01/geo/wgs84_pos#location">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
-        <rdfs:domain rdf:resource="http://purl.org/lis590OD/Fall17/EarlyWarningOnt#PotentialSurroundingHarm"/>
-        <rdfs:domain rdf:resource="http://schema.org/Action"/>
-        <rdfs:domain rdf:resource="http://schema.org/Event"/>
-        <rdfs:range rdf:resource="http://schema.org/GeoCoordinates"/>
-        <rdfs:range rdf:resource="http://schema.org/Place"/>
-        <rdfs:range rdf:resource="http://schema.org/PostalAddress"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing"/>
-        <rdfs:comment>The relation between something and the point, 
+###  http://www.w3.org/2003/01/geo/wgs84_pos#location
+<http://www.w3.org/2003/01/geo/wgs84_pos#location> rdf:type owl:ObjectProperty ;
+                                                   rdfs:subPropertyOf owl:topObjectProperty ;
+                                                   rdfs:domain :PotentialSurroundingHarm ,
+                                                               schema:/Action ,
+                                                               schema:/Event ;
+                                                   rdfs:range schema:/GeoCoordinates ,
+                                                              schema:/Place ,
+                                                              schema:/PostalAddress ,
+                                                              <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> ;
+                                                   rdfs:comment """The relation between something and the point, 
  or other geometrical thing in space, where it is.  For example, the realtionship between
  a radio tower and a Point with a given lat and long.
  Or a relationship between a park and its outline as a closed arc of points, or a road and
  its location as a arc (a sequence of points).
  Clearly in practice there will be limit to the accuracy of any such statement, but one would expect
- an accuracy appropriate for the size of the object and uses such as mapping .</rdfs:comment>
-        <rdfs:label>location</rdfs:label>
-    </owl:ObjectProperty>
-    
+ an accuracy appropriate for the size of the object and uses such as mapping .""" ;
+                                                   rdfs:label "location" .
 
 
-    <!-- http://www.w3.org/2006/time#after -->
+###  http://www.w3.org/2006/time#after
+time:after rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf owl:topObjectProperty ;
+           owl:inverseOf time:before ;
+           rdf:type owl:AsymmetricProperty ;
+           rdfs:domain event:Event ,
+                       time:TemporalEntity ;
+           rdfs:range event:Event ,
+                      time:TemporalEntity .
 
-    <owl:ObjectProperty rdf:about="http://www.w3.org/2006/time#after">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
-        <owl:inverseOf rdf:resource="http://www.w3.org/2006/time#before"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
-        <rdfs:domain rdf:resource="http://purl.org/NET/c4dm/event.owl#Event"/>
-        <rdfs:domain rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
-        <rdfs:range rdf:resource="http://purl.org/NET/c4dm/event.owl#Event"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
-    </owl:ObjectProperty>
-    
 
+###  http://www.w3.org/2006/time#before
+time:before rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf owl:topObjectProperty ;
+            rdf:type owl:AsymmetricProperty ;
+            rdfs:domain event:Event ,
+                        time:TemporalEntity ;
+            rdfs:range event:Event ,
+                       time:TemporalEntity .
 
-    <!-- http://www.w3.org/2006/time#before -->
 
-    <owl:ObjectProperty rdf:about="http://www.w3.org/2006/time#before">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
-        <rdfs:domain rdf:resource="http://purl.org/NET/c4dm/event.owl#Event"/>
-        <rdfs:domain rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
-        <rdfs:range rdf:resource="http://purl.org/NET/c4dm/event.owl#Event"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
-    </owl:ObjectProperty>
-    
+###  http://www.w3.org/2006/time#hasTime
+time:hasTime rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf owl:topObjectProperty ;
+             rdfs:range time:TemporalEntity .
 
 
-    <!-- http://www.w3.org/2006/time#hasTime -->
+###  http://xmlns.com/foaf/0.1/account
+foaf:account rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf owl:topObjectProperty ;
+             rdfs:domain foaf:Agent ;
+             rdfs:range foaf:OnlineAccount .
 
-    <owl:ObjectProperty rdf:about="http://www.w3.org/2006/time#hasTime">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
-    </owl:ObjectProperty>
-    
 
+###  http://xmlns.com/foaf/0.1/based_near
+foaf:based_near rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf owl:topObjectProperty ;
+                rdfs:domain <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> ;
+                rdfs:range <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> ;
+                rdfs:comment "A location that something is based near, for some broadly human notion of near." .
 
-    <!-- http://xmlns.com/foaf/0.1/account -->
 
-    <owl:ObjectProperty rdf:about="http://xmlns.com/foaf/0.1/account">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
-        <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
-        <rdfs:range rdf:resource="http://xmlns.com/foaf/0.1/OnlineAccount"/>
-    </owl:ObjectProperty>
-    
+###  http://xmlns.com/foaf/0.1/knows
+foaf:knows rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf owl:topObjectProperty ;
+           rdfs:domain foaf:Person ;
+           rdfs:range foaf:Person ;
+           rdfs:comment "A person known by this person (indicating some level of reciprocated interaction between the parties)." .
 
 
-    <!-- http://xmlns.com/foaf/0.1/based_near -->
+#################################################################
+#    Data properties
+#################################################################
 
-    <owl:ObjectProperty rdf:about="http://xmlns.com/foaf/0.1/based_near">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
-        <rdfs:domain rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing"/>
-        <rdfs:comment>A location that something is based near, for some broadly human notion of near.</rdfs:comment>
-    </owl:ObjectProperty>
-    
+###  http://purl.org/lis590OD/Fall17/EarlyWarningOnt#casulitiesnumber
+:casulitiesnumber rdf:type owl:DatatypeProperty ;
+                  rdfs:domain :KnownCasualities ;
+                  rdfs:range xsd:nonNegativeInteger .
 
 
-    <!-- http://xmlns.com/foaf/0.1/knows -->
+###  http://purl.org/lis590OD/Fall17/EarlyWarningOnt#city
+:city rdf:type owl:DatatypeProperty ;
+      rdfs:domain schema:/Place ,
+                  schema:/PostalAddress ;
+      rdfs:range rdfs:Literal .
 
-    <owl:ObjectProperty rdf:about="http://xmlns.com/foaf/0.1/knows">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
-        <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
-        <rdfs:range rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
-        <rdfs:comment>A person known by this person (indicating some level of reciprocated interaction between the parties).</rdfs:comment>
-    </owl:ObjectProperty>
-    
 
+###  http://purl.org/lis590OD/Fall17/EarlyWarningOnt#latitude
+:latitude rdf:type owl:DatatypeProperty ;
+          rdfs:domain schema:/GeoCoordinates ;
+          rdfs:range xsd:decimal .
 
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Data properties
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
 
-    
+###  http://purl.org/lis590OD/Fall17/EarlyWarningOnt#longitude
+:longitude rdf:type owl:DatatypeProperty ;
+           rdfs:subPropertyOf owl:topDataProperty ;
+           rdfs:domain schema:/GeoCoordinates ;
+           rdfs:range xsd:decimal .
 
 
-    <!-- http://purl.org/lis590OD/Fall17/EarlyWarningOnt#casulitiesnumber -->
+###  http://schema.org/addressRegion
+schema:/addressRegion rdf:type owl:DatatypeProperty ;
+                      rdfs:domain schema:/PostalAddress ;
+                      rdfs:range rdfs:Literal ;
+                      rdfs:comment "State" .
 
-    <owl:DatatypeProperty rdf:about="http://purl.org/lis590OD/Fall17/EarlyWarningOnt#casulitiesnumber">
-        <rdfs:domain rdf:resource="http://purl.org/lis590OD/Fall17/EarlyWarningOnt#KnownCasualities"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
-    </owl:DatatypeProperty>
-    
 
+###  http://schema.org/postalCode
+schema:/postalCode rdf:type owl:DatatypeProperty ;
+                   rdfs:domain schema:/PostalAddress ;
+                   rdfs:range xsd:nonNegativeInteger .
 
-    <!-- http://purl.org/lis590OD/Fall17/EarlyWarningOnt#city -->
 
-    <owl:DatatypeProperty rdf:about="http://purl.org/lis590OD/Fall17/EarlyWarningOnt#city">
-        <rdfs:domain rdf:resource="http://schema.org/Place"/>
-        <rdfs:domain rdf:resource="http://schema.org/PostalAddress"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
-    </owl:DatatypeProperty>
-    
+###  http://schema.org/streetAddress
+schema:/streetAddress rdf:type owl:DatatypeProperty ;
+                      rdfs:domain schema:/PostalAddress ;
+                      rdfs:range rdfs:Literal .
 
 
-    <!-- http://purl.org/lis590OD/Fall17/EarlyWarningOnt#latitude -->
+###  http://www.w3.org/2006/time#day
+time:day rdf:type owl:DatatypeProperty ;
+         rdfs:subPropertyOf owl:topDataProperty .
 
-    <owl:DatatypeProperty rdf:about="http://purl.org/lis590OD/Fall17/EarlyWarningOnt#latitude">
-        <rdfs:domain rdf:resource="http://schema.org/GeoCoordinates"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
-    </owl:DatatypeProperty>
-    
 
+###  http://www.w3.org/2006/time#days
+time:days rdf:type owl:DatatypeProperty ;
+          rdfs:subPropertyOf owl:topDataProperty ;
+          rdfs:domain time:GeneralDurationDescription ;
+          rdfs:range xsd:decimal .
 
-    <!-- http://purl.org/lis590OD/Fall17/EarlyWarningOnt#longitude -->
 
-    <owl:DatatypeProperty rdf:about="http://purl.org/lis590OD/Fall17/EarlyWarningOnt#longitude">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
-        <rdfs:domain rdf:resource="http://schema.org/GeoCoordinates"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
-    </owl:DatatypeProperty>
-    
+###  http://www.w3.org/2006/time#hour
+time:hour rdf:type owl:DatatypeProperty ;
+          rdfs:subPropertyOf owl:topDataProperty ;
+          rdfs:domain time:GeneralDateTimeDescription .
 
 
-    <!-- http://schema.org/addressRegion -->
+###  http://www.w3.org/2006/time#hours
+time:hours rdf:type owl:DatatypeProperty ;
+           rdfs:subPropertyOf owl:topDataProperty ;
+           rdfs:domain time:GeneralDurationDescription ;
+           rdfs:range xsd:decimal .
 
-    <owl:DatatypeProperty rdf:about="http://schema.org/addressRegion">
-        <rdfs:domain rdf:resource="http://schema.org/PostalAddress"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
-        <rdfs:comment>State</rdfs:comment>
-    </owl:DatatypeProperty>
-    
 
+###  http://www.w3.org/2006/time#minute
+time:minute rdf:type owl:DatatypeProperty ;
+            rdfs:subPropertyOf owl:topDataProperty ;
+            rdfs:domain time:GeneralDateTimeDescription .
 
-    <!-- http://schema.org/postalCode -->
 
-    <owl:DatatypeProperty rdf:about="http://schema.org/postalCode">
-        <rdfs:domain rdf:resource="http://schema.org/PostalAddress"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
-    </owl:DatatypeProperty>
-    
+###  http://www.w3.org/2006/time#minutes
+time:minutes rdf:type owl:DatatypeProperty ;
+             rdfs:subPropertyOf owl:topDataProperty ;
+             rdfs:domain time:GeneralDurationDescription ;
+             rdfs:range xsd:decimal .
 
 
-    <!-- http://schema.org/streetAddress -->
+###  http://www.w3.org/2006/time#month
+time:month rdf:type owl:DatatypeProperty ;
+           rdfs:subPropertyOf owl:topDataProperty ;
+           rdfs:domain time:GeneralDateTimeDescription .
 
-    <owl:DatatypeProperty rdf:about="http://schema.org/streetAddress">
-        <rdfs:domain rdf:resource="http://schema.org/PostalAddress"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
-    </owl:DatatypeProperty>
-    
 
+###  http://www.w3.org/2006/time#months
+time:months rdf:type owl:DatatypeProperty ;
+            rdfs:subPropertyOf owl:topDataProperty ;
+            rdfs:domain time:GeneralDurationDescription ;
+            rdfs:range xsd:decimal .
 
-    <!-- http://www.w3.org/2006/time#day -->
 
-    <owl:DatatypeProperty rdf:about="http://www.w3.org/2006/time#day">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
-    </owl:DatatypeProperty>
-    
+###  http://www.w3.org/2006/time#second
+time:second rdf:type owl:DatatypeProperty ;
+            rdfs:subPropertyOf owl:topDataProperty ;
+            rdfs:domain time:GeneralDateTimeDescription .
 
 
-    <!-- http://www.w3.org/2006/time#days -->
+###  http://www.w3.org/2006/time#seconds
+time:seconds rdf:type owl:DatatypeProperty ;
+             rdfs:subPropertyOf owl:topDataProperty ;
+             rdfs:domain time:GeneralDurationDescription ;
+             rdfs:range xsd:decimal .
 
-    <owl:DatatypeProperty rdf:about="http://www.w3.org/2006/time#days">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
-        <rdfs:domain rdf:resource="http://www.w3.org/2006/time#GeneralDurationDescription"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
-    </owl:DatatypeProperty>
-    
 
+###  http://www.w3.org/2006/time#week
+time:week rdf:type owl:DatatypeProperty ;
+          rdfs:subPropertyOf owl:topDataProperty ;
+          rdfs:domain time:GeneralDateTimeDescription .
 
-    <!-- http://www.w3.org/2006/time#hour -->
 
-    <owl:DatatypeProperty rdf:about="http://www.w3.org/2006/time#hour">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
-        <rdfs:domain rdf:resource="http://www.w3.org/2006/time#GeneralDateTimeDescription"/>
-    </owl:DatatypeProperty>
-    
+###  http://www.w3.org/2006/time#weeks
+time:weeks rdf:type owl:DatatypeProperty ;
+           rdfs:subPropertyOf owl:topDataProperty ;
+           rdfs:domain time:GeneralDurationDescription ;
+           rdfs:range xsd:decimal .
 
 
-    <!-- http://www.w3.org/2006/time#hours -->
+###  http://www.w3.org/2006/time#year
+time:year rdf:type owl:DatatypeProperty ;
+          rdfs:subPropertyOf owl:topDataProperty ;
+          rdfs:domain time:GeneralDateTimeDescription .
 
-    <owl:DatatypeProperty rdf:about="http://www.w3.org/2006/time#hours">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
-        <rdfs:domain rdf:resource="http://www.w3.org/2006/time#GeneralDurationDescription"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
-    </owl:DatatypeProperty>
-    
 
+###  http://www.w3.org/2006/time#years
+time:years rdf:type owl:DatatypeProperty ;
+           rdfs:subPropertyOf owl:topDataProperty ;
+           rdfs:domain time:GeneralDurationDescription ;
+           rdfs:range xsd:decimal .
 
-    <!-- http://www.w3.org/2006/time#minute -->
 
-    <owl:DatatypeProperty rdf:about="http://www.w3.org/2006/time#minute">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
-        <rdfs:domain rdf:resource="http://www.w3.org/2006/time#GeneralDateTimeDescription"/>
-    </owl:DatatypeProperty>
-    
+#################################################################
+#    Classes
+#################################################################
 
+###  http://purl.org/NET/c4dm/event.owl#Event
+event:Event rdf:type owl:Class ;
+            owl:equivalentClass schema:/Event .
 
-    <!-- http://www.w3.org/2006/time#minutes -->
 
-    <owl:DatatypeProperty rdf:about="http://www.w3.org/2006/time#minutes">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
-        <rdfs:domain rdf:resource="http://www.w3.org/2006/time#GeneralDurationDescription"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
-    </owl:DatatypeProperty>
-    
+###  http://purl.org/dc/terms/Agent
+dcterms:Agent rdf:type owl:Class ;
+              owl:equivalentClass foaf:Agent ;
+              rdfs:label "Agent" .
 
 
-    <!-- http://www.w3.org/2006/time#month -->
+###  http://purl.org/lis590OD/Fall17/CrimeChargeOnt#CrimeClassification
+crimecharge:#CrimeClassification rdf:type owl:Class ;
+                                 rdfs:subClassOf crimecharge:#Statute_Information ;
+                                 rdfs:comment "Categorization of crimes into misdemeanors, felonies, infractions, and wobblers." ;
+                                 rdfs:isDefinedBy "http://purl.org/lis590OD/Fall17/CrimeChargeOnt" ;
+                                 rdfs:label "Crime Classification" .
 
-    <owl:DatatypeProperty rdf:about="http://www.w3.org/2006/time#month">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
-        <rdfs:domain rdf:resource="http://www.w3.org/2006/time#GeneralDateTimeDescription"/>
-    </owl:DatatypeProperty>
-    
 
+###  http://purl.org/lis590OD/Fall17/CrimeChargeOnt#Statute_Information
+crimecharge:#Statute_Information rdf:type owl:Class ;
+                                 rdfs:subClassOf :Criminal ;
+                                 rdfs:isDefinedBy "http://purl.org/lis590OD/Fall17/CrimeChargeOnt" .
 
-    <!-- http://www.w3.org/2006/time#months -->
 
-    <owl:DatatypeProperty rdf:about="http://www.w3.org/2006/time#months">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
-        <rdfs:domain rdf:resource="http://www.w3.org/2006/time#GeneralDurationDescription"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
-    </owl:DatatypeProperty>
-    
+###  http://purl.org/lis590OD/Fall17/EarlyWarningOnt#CrimeCode
+:CrimeCode rdf:type owl:Class ;
+           rdfs:subClassOf crimecharge:#Statute_Information ;
+           rdfs:isDefinedBy "http://purl.org/lis590OD/Fall17/CrimeChargeOnt" ;
+           rdfs:label "Crime Code" .
 
 
-    <!-- http://www.w3.org/2006/time#second -->
+###  http://purl.org/lis590OD/Fall17/EarlyWarningOnt#Criminal
+:Criminal rdf:type owl:Class ;
+          rdfs:subClassOf :Report ,
+                          schema:/Person ,
+                          foaf:Person ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :isHarmful ;
+                            owl:someValuesFrom :PotentialSurroundingHarm
+                          ] .
 
-    <owl:DatatypeProperty rdf:about="http://www.w3.org/2006/time#second">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
-        <rdfs:domain rdf:resource="http://www.w3.org/2006/time#GeneralDateTimeDescription"/>
-    </owl:DatatypeProperty>
-    
 
+###  http://purl.org/lis590OD/Fall17/EarlyWarningOnt#DisseminationChannels
+:DisseminationChannels rdf:type owl:Class ;
+                       rdfs:label "Dissemination Channels" .
 
-    <!-- http://www.w3.org/2006/time#seconds -->
 
-    <owl:DatatypeProperty rdf:about="http://www.w3.org/2006/time#seconds">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
-        <rdfs:domain rdf:resource="http://www.w3.org/2006/time#GeneralDurationDescription"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
-    </owl:DatatypeProperty>
-    
+###  http://purl.org/lis590OD/Fall17/EarlyWarningOnt#Felony
+:Felony rdf:type owl:Class ;
+        rdfs:subClassOf crimecharge:#CrimeClassification .
 
 
-    <!-- http://www.w3.org/2006/time#week -->
+###  http://purl.org/lis590OD/Fall17/EarlyWarningOnt#Infraction
+:Infraction rdf:type owl:Class ;
+            rdfs:subClassOf crimecharge:#CrimeClassification .
 
-    <owl:DatatypeProperty rdf:about="http://www.w3.org/2006/time#week">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
-        <rdfs:domain rdf:resource="http://www.w3.org/2006/time#GeneralDateTimeDescription"/>
-    </owl:DatatypeProperty>
-    
 
+###  http://purl.org/lis590OD/Fall17/EarlyWarningOnt#KnownCasualities
+:KnownCasualities rdf:type owl:Class ;
+                  rdfs:subClassOf :Report ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :casulitiesnumber ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onDataRange xsd:nonNegativeInteger
+                                  ] ;
+                  rdfs:comment "Whether or not there were any casuality. If there is, how serious it was." .
 
-    <!-- http://www.w3.org/2006/time#weeks -->
 
-    <owl:DatatypeProperty rdf:about="http://www.w3.org/2006/time#weeks">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
-        <rdfs:domain rdf:resource="http://www.w3.org/2006/time#GeneralDurationDescription"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
-    </owl:DatatypeProperty>
-    
+###  http://purl.org/lis590OD/Fall17/EarlyWarningOnt#Misdemeanors
+:Misdemeanors rdf:type owl:Class ;
+              rdfs:subClassOf crimecharge:#CrimeClassification .
 
 
-    <!-- http://www.w3.org/2006/time#year -->
+###  http://purl.org/lis590OD/Fall17/EarlyWarningOnt#PotentialSurroundingHarm
+:PotentialSurroundingHarm rdf:type owl:Class ;
+                          rdfs:subClassOf event:Event ,
+                                          :Report ,
+                                          schema:/Action ,
+                                          schema:/Event ,
+                                          [ rdf:type owl:Restriction ;
+                                            owl:onProperty <http://www.w3.org/2003/01/geo/wgs84_pos#location> ;
+                                            owl:someValuesFrom schema:/Place
+                                          ] ;
+                          rdfs:comment "Report any potential harm there may be in the surroundings (e.g. Gas leak, explosions, etc. )" .
 
-    <owl:DatatypeProperty rdf:about="http://www.w3.org/2006/time#year">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
-        <rdfs:domain rdf:resource="http://www.w3.org/2006/time#GeneralDateTimeDescription"/>
-    </owl:DatatypeProperty>
-    
 
+###  http://purl.org/lis590OD/Fall17/EarlyWarningOnt#Report
+:Report rdf:type owl:Class ;
+        rdfs:label "When a criminal activity happens, and someone report the incident - then there will be an immediate report in the system to help disseminate the information to the early warning system to the people in the affected areas nearby." .
 
-    <!-- http://www.w3.org/2006/time#years -->
 
-    <owl:DatatypeProperty rdf:about="http://www.w3.org/2006/time#years">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
-        <rdfs:domain rdf:resource="http://www.w3.org/2006/time#GeneralDurationDescription"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
-    </owl:DatatypeProperty>
-    
+###  http://purl.org/lis590OD/Fall17/EarlyWarningOnt#ReportingPerson
+:ReportingPerson rdf:type owl:Class ;
+                 rdfs:subClassOf :Report ,
+                                 schema:/Person ,
+                                 foaf:Person .
 
 
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Classes
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
+###  http://purl.org/lis590OD/Fall17/EarlyWarningOnt#Wobbler
+:Wobbler rdf:type owl:Class ;
+         rdfs:subClassOf crimecharge:#CrimeClassification .
 
-    
 
+###  http://schema.org/Action
+schema:/Action rdf:type owl:Class .
 
-    <!-- http://purl.org/NET/c4dm/event.owl#Event -->
 
-    <owl:Class rdf:about="http://purl.org/NET/c4dm/event.owl#Event">
-        <owl:equivalentClass rdf:resource="http://schema.org/Event"/>
-    </owl:Class>
-    
+###  http://schema.org/Event
+schema:/Event rdf:type owl:Class .
 
 
-    <!-- http://purl.org/dc/terms/Agent -->
+###  http://schema.org/GeoCoordinates
+schema:/GeoCoordinates rdf:type owl:Class ;
+                       rdfs:subClassOf :PotentialSurroundingHarm ,
+                                       :Report ,
+                                       schema:/Place ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty <http://www.w3.org/2003/01/geo/wgs84_pos#location> ;
+                                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                         owl:onClass schema:/GeoCoordinates
+                                       ] ;
+                       rdfs:comment "The geographic coordinates of a place or event." .
 
-    <owl:Class rdf:about="http://purl.org/dc/terms/Agent">
-        <owl:equivalentClass rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
-        <rdfs:label>Agent</rdfs:label>
-    </owl:Class>
-    
 
+###  http://schema.org/Person
+schema:/Person rdf:type owl:Class ;
+               owl:equivalentClass foaf:Person ;
+               rdfs:label "Person" .
+
 
-    <!-- http://purl.org/lis590OD/Fall17/CrimeChargeOnt#CrimeClassification -->
+###  http://schema.org/Place
+schema:/Place rdf:type owl:Class .
 
-    <owl:Class rdf:about="http://purl.org/lis590OD/Fall17/CrimeChargeOnt#CrimeClassification">
-        <rdfs:subClassOf rdf:resource="http://purl.org/lis590OD/Fall17/CrimeChargeOnt#Statute_Information"/>
-        <rdfs:comment>Categorization of crimes into misdemeanors, felonies, infractions, and wobblers.</rdfs:comment>
-        <rdfs:isDefinedBy>http://purl.org/lis590OD/Fall17/CrimeChargeOnt</rdfs:isDefinedBy>
-        <rdfs:label>Crime Classification</rdfs:label>
-    </owl:Class>
-    
 
+###  http://schema.org/PostalAddress
+schema:/PostalAddress rdf:type owl:Class ;
+                      rdfs:subClassOf :Report ,
+                                      schema:/Place ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty schema:/addressRegion ;
+                                        owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty schema:/postalCode ;
+                                        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                        owl:onDataRange xsd:nonNegativeInteger
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty schema:/streetAddress ;
+                                        owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                      ] ;
+                      rdfs:comment "The mailing address." .
 
-    <!-- http://purl.org/lis590OD/Fall17/CrimeChargeOnt#Statute_Information -->
 
-    <owl:Class rdf:about="http://purl.org/lis590OD/Fall17/CrimeChargeOnt#Statute_Information">
-        <rdfs:subClassOf rdf:resource="http://purl.org/lis590OD/Fall17/EarlyWarningOnt#Criminal"/>
-        <rdfs:isDefinedBy>http://purl.org/lis590OD/Fall17/CrimeChargeOnt</rdfs:isDefinedBy>
-    </owl:Class>
-    
+###  http://www.geonames.org/ontology#Feature
+geonames:Feature rdf:type owl:Class ;
+                 rdfs:subClassOf schema:/Place ,
+                                 <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> ;
+                 rdfs:label "Feature" .
 
 
-    <!-- http://purl.org/lis590OD/Fall17/EarlyWarningOnt#CrimeCode -->
+###  http://www.geonames.org/ontology#GeonamesFeature
+geonames:GeonamesFeature rdf:type owl:Class ;
+                         rdfs:subClassOf geonames:Feature ;
+                         rdfs:comment "A feature described in geonames database, uniquely defined by its geonames identifier" ;
+                         rdfs:label "Geonames Feature" .
 
-    <owl:Class rdf:about="http://purl.org/lis590OD/Fall17/EarlyWarningOnt#CrimeCode">
-        <rdfs:subClassOf rdf:resource="http://purl.org/lis590OD/Fall17/CrimeChargeOnt#Statute_Information"/>
-        <rdfs:isDefinedBy>http://purl.org/lis590OD/Fall17/CrimeChargeOnt</rdfs:isDefinedBy>
-        <rdfs:label>Crime Code</rdfs:label>
-    </owl:Class>
-    
 
+###  http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing
+<http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> rdf:type owl:Class ;
+                                                       rdfs:comment """Anything with spatial extent, i.e. size, shape, or position.
+ e.g. people, places, bowling balls, as well as abstract areas like cubes.""" ;
+                                                       rdfs:label "Spatial Thing" .
 
-    <!-- http://purl.org/lis590OD/Fall17/EarlyWarningOnt#Criminal -->
 
-    <owl:Class rdf:about="http://purl.org/lis590OD/Fall17/EarlyWarningOnt#Criminal">
-        <rdfs:subClassOf rdf:resource="http://purl.org/lis590OD/Fall17/EarlyWarningOnt#Report"/>
-        <rdfs:subClassOf rdf:resource="http://schema.org/Person"/>
-        <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/lis590OD/Fall17/EarlyWarningOnt#isHarmful"/>
-                <owl:someValuesFrom rdf:resource="http://purl.org/lis590OD/Fall17/EarlyWarningOnt#PotentialSurroundingHarm"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-    </owl:Class>
-    
+###  http://www.w3.org/2006/time#GeneralDateTimeDescription
+time:GeneralDateTimeDescription rdf:type owl:Class ;
+                                rdfs:subClassOf :Report ,
+                                                [ rdf:type owl:Restriction ;
+                                                  owl:onProperty time:day ;
+                                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                  owl:onDataRange xsd:nonNegativeInteger
+                                                ] ,
+                                                [ rdf:type owl:Restriction ;
+                                                  owl:onProperty time:hour ;
+                                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                  owl:onDataRange xsd:nonNegativeInteger
+                                                ] ,
+                                                [ rdf:type owl:Restriction ;
+                                                  owl:onProperty time:minute ;
+                                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                  owl:onDataRange xsd:nonNegativeInteger
+                                                ] ,
+                                                [ rdf:type owl:Restriction ;
+                                                  owl:onProperty time:second ;
+                                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                  owl:onDataRange xsd:nonNegativeInteger
+                                                ] .
 
 
-    <!-- http://purl.org/lis590OD/Fall17/EarlyWarningOnt#DisseminationChannels -->
+###  http://www.w3.org/2006/time#GeneralDurationDescription
+time:GeneralDurationDescription rdf:type owl:Class ;
+                                rdfs:subClassOf time:TemporalDuration ,
+                                                [ rdf:type owl:Restriction ;
+                                                  owl:onProperty time:days ;
+                                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                  owl:onDataRange xsd:nonNegativeInteger
+                                                ] ,
+                                                [ rdf:type owl:Restriction ;
+                                                  owl:onProperty time:hours ;
+                                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                  owl:onDataRange xsd:nonNegativeInteger
+                                                ] ,
+                                                [ rdf:type owl:Restriction ;
+                                                  owl:onProperty time:minutes ;
+                                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                  owl:onDataRange xsd:nonNegativeInteger
+                                                ] ,
+                                                [ rdf:type owl:Restriction ;
+                                                  owl:onProperty time:months ;
+                                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                  owl:onDataRange xsd:nonNegativeInteger
+                                                ] ,
+                                                [ rdf:type owl:Restriction ;
+                                                  owl:onProperty time:years ;
+                                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                  owl:onDataRange xsd:nonNegativeInteger
+                                                ] .
 
-    <owl:Class rdf:about="http://purl.org/lis590OD/Fall17/EarlyWarningOnt#DisseminationChannels">
-        <rdfs:label>Dissemination Channels</rdfs:label>
-    </owl:Class>
-    
 
+###  http://www.w3.org/2006/time#TemporalDuration
+time:TemporalDuration rdf:type owl:Class .
 
-    <!-- http://purl.org/lis590OD/Fall17/EarlyWarningOnt#Felony -->
 
-    <owl:Class rdf:about="http://purl.org/lis590OD/Fall17/EarlyWarningOnt#Felony">
-        <rdfs:subClassOf rdf:resource="http://purl.org/lis590OD/Fall17/CrimeChargeOnt#CrimeClassification"/>
-    </owl:Class>
-    
+###  http://www.w3.org/2006/time#TemporalEntity
+time:TemporalEntity rdf:type owl:Class .
 
 
-    <!-- http://purl.org/lis590OD/Fall17/EarlyWarningOnt#Infraction -->
+###  http://xmlns.com/foaf/0.1/Agent
+foaf:Agent rdf:type owl:Class ;
+           rdfs:comment "An agent (eg. person, group, software or physical artifact)." ;
+           rdfs:label "Agent" .
 
-    <owl:Class rdf:about="http://purl.org/lis590OD/Fall17/EarlyWarningOnt#Infraction">
-        <rdfs:subClassOf rdf:resource="http://purl.org/lis590OD/Fall17/CrimeChargeOnt#CrimeClassification"/>
-    </owl:Class>
-    
 
+###  http://xmlns.com/foaf/0.1/OnlineAccount
+foaf:OnlineAccount rdf:type owl:Class ;
+                   rdfs:comment "An online account." ;
+                   rdfs:label "Online Account" .
 
-    <!-- http://purl.org/lis590OD/Fall17/EarlyWarningOnt#KnownCasualities -->
 
-    <owl:Class rdf:about="http://purl.org/lis590OD/Fall17/EarlyWarningOnt#KnownCasualities">
-        <rdfs:subClassOf rdf:resource="http://purl.org/lis590OD/Fall17/EarlyWarningOnt#Report"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/lis590OD/Fall17/EarlyWarningOnt#casulitiesnumber"/>
-                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
-                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment>Whether or not there were any casuality. If there is, how serious it was.</rdfs:comment>
-    </owl:Class>
-    
+###  http://xmlns.com/foaf/0.1/OnlineChatAccount
+foaf:OnlineChatAccount rdf:type owl:Class ;
+                       rdfs:subClassOf foaf:OnlineAccount ;
+                       rdfs:label "Online Chat Account" .
 
 
-    <!-- http://purl.org/lis590OD/Fall17/EarlyWarningOnt#Misdemeanors -->
+###  http://xmlns.com/foaf/0.1/OnlineEcommerceAccount
+foaf:OnlineEcommerceAccount rdf:type owl:Class ;
+                            rdfs:subClassOf foaf:OnlineAccount ;
+                            rdfs:label "Online Ecommerce Account" .
 
-    <owl:Class rdf:about="http://purl.org/lis590OD/Fall17/EarlyWarningOnt#Misdemeanors">
-        <rdfs:subClassOf rdf:resource="http://purl.org/lis590OD/Fall17/CrimeChargeOnt#CrimeClassification"/>
-    </owl:Class>
-    
 
+###  http://xmlns.com/foaf/0.1/OnlineGamingAccount
+foaf:OnlineGamingAccount rdf:type owl:Class ;
+                         rdfs:subClassOf foaf:OnlineAccount ;
+                         rdfs:label "Online Gaming Account" .
 
-    <!-- http://purl.org/lis590OD/Fall17/EarlyWarningOnt#PotentialSurroundingHarm -->
 
-    <owl:Class rdf:about="http://purl.org/lis590OD/Fall17/EarlyWarningOnt#PotentialSurroundingHarm">
-        <rdfs:subClassOf rdf:resource="http://purl.org/NET/c4dm/event.owl#Event"/>
-        <rdfs:subClassOf rdf:resource="http://purl.org/lis590OD/Fall17/EarlyWarningOnt#Report"/>
-        <rdfs:subClassOf rdf:resource="http://schema.org/Action"/>
-        <rdfs:subClassOf rdf:resource="http://schema.org/Event"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#location"/>
-                <owl:someValuesFrom rdf:resource="http://schema.org/Place"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment>Report any potential harm there may be in the surroundings (e.g. Gas leak, explosions, etc. )</rdfs:comment>
-    </owl:Class>
-    
+###  http://xmlns.com/foaf/0.1/Person
+foaf:Person rdf:type owl:Class ;
+            rdfs:subClassOf dcterms:Agent ,
+                            <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> ,
+                            foaf:Agent ;
+            rdfs:comment "A person." ;
+            rdfs:label "Person" .
 
 
-    <!-- http://purl.org/lis590OD/Fall17/EarlyWarningOnt#Report -->
+#################################################################
+#    Individuals
+#################################################################
 
-    <owl:Class rdf:about="http://purl.org/lis590OD/Fall17/EarlyWarningOnt#Report">
-        <rdfs:label>When a criminal activity happens, and someone report the incident - then there will be an immediate report in the system to help disseminate the information to the early warning system to the people in the affected areas nearby.</rdfs:label>
-    </owl:Class>
-    
+###  http://purl.org/lis590OD/Fall17/EarlyWarningOnt#Jane_Doe
+:Jane_Doe rdf:type owl:NamedIndividual ,
+                   :Criminal ,
+                   schema:/Person ,
+                   foaf:Person .
 
 
-    <!-- http://purl.org/lis590OD/Fall17/EarlyWarningOnt#ReportingPerson -->
+###  http://purl.org/lis590OD/Fall17/EarlyWarningOnt#Jone_Doe
+:Jone_Doe rdf:type owl:NamedIndividual ,
+                   :ReportingPerson ,
+                   schema:/Person ,
+                   foaf:Person .
 
-    <owl:Class rdf:about="http://purl.org/lis590OD/Fall17/EarlyWarningOnt#ReportingPerson">
-        <rdfs:subClassOf rdf:resource="http://purl.org/lis590OD/Fall17/EarlyWarningOnt#Report"/>
-        <rdfs:subClassOf rdf:resource="http://schema.org/Person"/>
-        <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
-    </owl:Class>
-    
 
+###  http://purl.org/lis590OD/Fall17/EarlyWarningOnt#explosion
+:explosion rdf:type owl:NamedIndividual ,
+                    :PotentialSurroundingHarm .
 
-    <!-- http://purl.org/lis590OD/Fall17/EarlyWarningOnt#Wobbler -->
 
-    <owl:Class rdf:about="http://purl.org/lis590OD/Fall17/EarlyWarningOnt#Wobbler">
-        <rdfs:subClassOf rdf:resource="http://purl.org/lis590OD/Fall17/CrimeChargeOnt#CrimeClassification"/>
-    </owl:Class>
-    
+###  http://purl.org/lis590OD/Fall17/EarlyWarningOnt#gasLeak
+:gasLeak rdf:type owl:NamedIndividual ,
+                  :PotentialSurroundingHarm .
 
 
-    <!-- http://schema.org/Action -->
+###  http://purl.org/lis590OD/Fall17/EarlyWarningOnt#gunFire
+:gunFire rdf:type owl:NamedIndividual ,
+                  :PotentialSurroundingHarm .
 
-    <owl:Class rdf:about="http://schema.org/Action"/>
-    
 
-
-    <!-- http://schema.org/Event -->
-
-    <owl:Class rdf:about="http://schema.org/Event"/>
-    
-
-
-    <!-- http://schema.org/GeoCoordinates -->
-
-    <owl:Class rdf:about="http://schema.org/GeoCoordinates">
-        <rdfs:subClassOf rdf:resource="http://purl.org/lis590OD/Fall17/EarlyWarningOnt#PotentialSurroundingHarm"/>
-        <rdfs:subClassOf rdf:resource="http://purl.org/lis590OD/Fall17/EarlyWarningOnt#Report"/>
-        <rdfs:subClassOf rdf:resource="http://schema.org/Place"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#location"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="http://schema.org/GeoCoordinates"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment>The geographic coordinates of a place or event.</rdfs:comment>
-    </owl:Class>
-    
-
-
-    <!-- http://schema.org/Person -->
-
-    <owl:Class rdf:about="http://schema.org/Person">
-        <owl:equivalentClass rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
-        <rdfs:label>Person</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://schema.org/Place -->
-
-    <owl:Class rdf:about="http://schema.org/Place"/>
-    
-
-
-    <!-- http://schema.org/PostalAddress -->
-
-    <owl:Class rdf:about="http://schema.org/PostalAddress">
-        <rdfs:subClassOf rdf:resource="http://purl.org/lis590OD/Fall17/EarlyWarningOnt#Report"/>
-        <rdfs:subClassOf rdf:resource="http://schema.org/Place"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://schema.org/addressRegion"/>
-                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://schema.org/postalCode"/>
-                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
-                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://schema.org/streetAddress"/>
-                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:comment>The mailing address.</rdfs:comment>
-    </owl:Class>
-    
-
-
-    <!-- http://www.geonames.org/ontology#Feature -->
-
-    <owl:Class rdf:about="http://www.geonames.org/ontology#Feature">
-        <rdfs:subClassOf rdf:resource="http://schema.org/Place"/>
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing"/>
-        <rdfs:label>Feature</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://www.geonames.org/ontology#GeonamesFeature -->
-
-    <owl:Class rdf:about="http://www.geonames.org/ontology#GeonamesFeature">
-        <rdfs:subClassOf rdf:resource="http://www.geonames.org/ontology#Feature"/>
-        <rdfs:comment>A feature described in geonames database, uniquely defined by its geonames identifier</rdfs:comment>
-        <rdfs:label>Geonames Feature</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing -->
-
-    <owl:Class rdf:about="http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing">
-        <rdfs:comment>Anything with spatial extent, i.e. size, shape, or position.
- e.g. people, places, bowling balls, as well as abstract areas like cubes.</rdfs:comment>
-        <rdfs:label>Spatial Thing</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://www.w3.org/2006/time#GeneralDateTimeDescription -->
-
-    <owl:Class rdf:about="http://www.w3.org/2006/time#GeneralDateTimeDescription">
-        <rdfs:subClassOf rdf:resource="http://purl.org/lis590OD/Fall17/EarlyWarningOnt#Report"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/2006/time#day"/>
-                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
-                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/2006/time#hour"/>
-                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
-                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/2006/time#minute"/>
-                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
-                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/2006/time#second"/>
-                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
-                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-    </owl:Class>
-    
-
-
-    <!-- http://www.w3.org/2006/time#GeneralDurationDescription -->
-
-    <owl:Class rdf:about="http://www.w3.org/2006/time#GeneralDurationDescription">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2006/time#TemporalDuration"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/2006/time#days"/>
-                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
-                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/2006/time#hours"/>
-                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
-                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/2006/time#minutes"/>
-                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
-                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/2006/time#months"/>
-                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
-                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/2006/time#years"/>
-                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
-                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-    </owl:Class>
-    
-
-
-    <!-- http://www.w3.org/2006/time#TemporalDuration -->
-
-    <owl:Class rdf:about="http://www.w3.org/2006/time#TemporalDuration"/>
-    
-
-
-    <!-- http://www.w3.org/2006/time#TemporalEntity -->
-
-    <owl:Class rdf:about="http://www.w3.org/2006/time#TemporalEntity"/>
-    
-
-
-    <!-- http://xmlns.com/foaf/0.1/Agent -->
-
-    <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Agent">
-        <rdfs:comment>An agent (eg. person, group, software or physical artifact).</rdfs:comment>
-        <rdfs:label>Agent</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://xmlns.com/foaf/0.1/OnlineAccount -->
-
-    <owl:Class rdf:about="http://xmlns.com/foaf/0.1/OnlineAccount">
-        <rdfs:comment>An online account.</rdfs:comment>
-        <rdfs:label>Online Account</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://xmlns.com/foaf/0.1/OnlineChatAccount -->
-
-    <owl:Class rdf:about="http://xmlns.com/foaf/0.1/OnlineChatAccount">
-        <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/OnlineAccount"/>
-        <rdfs:label>Online Chat Account</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://xmlns.com/foaf/0.1/OnlineEcommerceAccount -->
-
-    <owl:Class rdf:about="http://xmlns.com/foaf/0.1/OnlineEcommerceAccount">
-        <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/OnlineAccount"/>
-        <rdfs:label>Online Ecommerce Account</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://xmlns.com/foaf/0.1/OnlineGamingAccount -->
-
-    <owl:Class rdf:about="http://xmlns.com/foaf/0.1/OnlineGamingAccount">
-        <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/OnlineAccount"/>
-        <rdfs:label>Online Gaming Account</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://xmlns.com/foaf/0.1/Person -->
-
-    <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Person">
-        <rdfs:subClassOf rdf:resource="http://purl.org/dc/terms/Agent"/>
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing"/>
-        <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
-        <rdfs:comment>A person.</rdfs:comment>
-        <rdfs:label>Person</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Individuals
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    
-
-
-    <!-- http://purl.org/lis590OD/Fall17/EarlyWarningOnt#Jane_Doe -->
-
-    <owl:NamedIndividual rdf:about="http://purl.org/lis590OD/Fall17/EarlyWarningOnt#Jane_Doe">
-        <rdf:type rdf:resource="http://purl.org/lis590OD/Fall17/EarlyWarningOnt#Criminal"/>
-        <rdf:type rdf:resource="http://schema.org/Person"/>
-        <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://purl.org/lis590OD/Fall17/EarlyWarningOnt#Jone_Doe -->
-
-    <owl:NamedIndividual rdf:about="http://purl.org/lis590OD/Fall17/EarlyWarningOnt#Jone_Doe">
-        <rdf:type rdf:resource="http://purl.org/lis590OD/Fall17/EarlyWarningOnt#ReportingPerson"/>
-        <rdf:type rdf:resource="http://schema.org/Person"/>
-        <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://purl.org/lis590OD/Fall17/EarlyWarningOnt#explosion -->
-
-    <owl:NamedIndividual rdf:about="http://purl.org/lis590OD/Fall17/EarlyWarningOnt#explosion">
-        <rdf:type rdf:resource="http://purl.org/lis590OD/Fall17/EarlyWarningOnt#PotentialSurroundingHarm"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://purl.org/lis590OD/Fall17/EarlyWarningOnt#gasLeak -->
-
-    <owl:NamedIndividual rdf:about="http://purl.org/lis590OD/Fall17/EarlyWarningOnt#gasLeak">
-        <rdf:type rdf:resource="http://purl.org/lis590OD/Fall17/EarlyWarningOnt#PotentialSurroundingHarm"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://purl.org/lis590OD/Fall17/EarlyWarningOnt#gunFire -->
-
-    <owl:NamedIndividual rdf:about="http://purl.org/lis590OD/Fall17/EarlyWarningOnt#gunFire">
-        <rdf:type rdf:resource="http://purl.org/lis590OD/Fall17/EarlyWarningOnt#PotentialSurroundingHarm"/>
-    </owl:NamedIndividual>
-</rdf:RDF>
-
-
-
-<!-- Generated by the OWL API (version 4.2.5.20160517-0735) https://github.com/owlcs/owlapi -->
-
+###  Generated by the OWL API (version 4.2.5.20160517-0735) https://github.com/owlcs/owlapi
