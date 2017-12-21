@@ -18,7 +18,11 @@ Furthermore, because one of the essence in 'early-warning' systems is the event'
 
 ### 3. Create a test Vocabulary that imports the vocabularies you need.
 
+https://github.com/IllinoisOntoDev/Early-Warning-Ontology/blob/master/Test_imports.owl
+
 ### 4. Inferences work, because imported vocabularies are logically consistant.
+
+The inferences in the test vocabulary seemed to all work. 
 
 
 ------
