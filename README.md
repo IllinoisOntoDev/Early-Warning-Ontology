@@ -5,6 +5,7 @@ Recent updates:
 ### 1. Link to access my ontology (without imports): 
 
 Github: https://github.com/IllinoisOntoDev/Early-Warning-Ontology/blob/master/EarlyWarningOntology.owl
+
 URI: http://purl.org/lis590OD/Fall17/EarlyWarningOnt
 
 ### 2. Incorporate other ontologies in your vocabulary
@@ -15,7 +16,7 @@ In particular, I used the classes "Statute Information" and its subclasses "Crim
 
 Furthermore, because one of the essence in 'early-warning' systems is the event's time and location, I incorporated the terms in many exisiting ontologies related to that, sucha the GeoNames ontology, GeoSPARQL ontology, WGS84, Time ontology, and schema.org. 
 
-### 3. Testing the imported vocabularies and new inferences
+### 3. Create a test Vocabulary that imports the vocabularies you need.
 
 ### 4. Inferences work, because imported vocabularies are logically consistant.
 
