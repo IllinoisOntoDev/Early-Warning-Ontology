@@ -1,4 +1,28 @@
-# Domain Description 
+# Early Warning Ontology
+
+Recent updates:
+
+### 1. Link to access my ontology (without imports): 
+
+Github: https://github.com/IllinoisOntoDev/Early-Warning-Ontology/blob/master/EarlyWarningOntology.owl
+URI: http://purl.org/lis590OD/Fall17/EarlyWarningOnt
+
+### 2. Incorporate other ontologies in your vocabulary
+
+I used the some of Erica's Crime Charge ontology vocabulary:
+
+In particular, I used the classes "Statute Information" and its subclasses "Crime classification" and "Crime Code". This will enable my Early Warning Ontology to identify the criminal and whether or not conmitted felony, infraction, misdemanors, or wobbler.
+
+Furthermore, because one of the essence in 'early-warning' systems is the event's time and location, I incorporated the terms in many exisiting ontologies related to that, sucha the GeoNames ontology, GeoSPARQL ontology, WGS84, Time ontology, and schema.org. 
+
+### 3. Testing the imported vocabularies and new inferences
+
+### 4. Inferences work, because imported vocabularies are logically consistant.
+
+
+------
+
+## Domain Description 
 
 ## Scope of the proposed area
 With the advent of new geospatial technologies, tracking real-time criminal activities has become a prevalent practice. Some existing platforms such as [Criminal Reports](https://www.crimereports.com/) provides such statistics and data within a period of time; while governmental warning systems (e.g. Illini alert) receives criminal activity reports and sends warning messages via text messages or social media. However, these warning systems usually still deferred a little when sending out the warnings; and the messages are sent to the mass public when only selected areas were affected.
